@@ -1,0 +1,21 @@
+
+
+
+<h1>Listado eventos</h1>
+<hr>
+<div class="row justify-content-center d-flex">
+   {{#each issues}}
+    <div class="col-md-4 mb-3">
+        <div class="card">
+            <div class="card-body">
+            <h3 class="card-title text-capitalize">{{agression}}</h3>
+            <p class="card-text text-capitalize"> Descripción: {{description}}</p>
+         <form action="/eventos/eliminar/{{_id}}" method="POST">
+            <input type="submit" value="Eliminar evento" class="btn btn-danger">
+        </form>
+    {{/each}}
+       
+             </div>
+        </div>
+    </div>
+</div>
