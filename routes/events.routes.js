@@ -1,6 +1,6 @@
 const router = require('express').Router()
 const User = require('../models/User.model')
-const Issues = require('../models/Issues.model')
+const Issues = require('../models/Issue.model')
 const Foro = require('../models/Foro.model')
 
 
@@ -9,9 +9,9 @@ router.get('/eventos', (req, res) => {
     Issues
         .find()
         .then(issues => {
-        res.render('issues/list', { issues })
+            res.render('issues/list', { issues })
         })
-        .catch(err => (err))    
+        .catch(err => (err))
 })
 
 router.get('/eventos/crear', (req, res) => {
@@ -22,7 +22,7 @@ router.get('/eventos/crear', (req, res) => {
 router.post('/eventos/crear', (req, res) => {
     // res.send("post crear eventos")
     const { agression, description, location } = req.body
-    
+
     Issues
         .create({ agression, description, location })
         .then(issues => {
@@ -46,14 +46,14 @@ router.get('/foro', (req, res) => {
     Foro
         .find()
         .then(comments => {
-            res.render('foro/list', { comments })
+            res.render('plank/list', { comments })
         })
         .catch(err => (err))
 })
 
 router.get('/foro/comentar', (req, res) => {
     // res.send("get crear eventos");
-    res.render('foro/create')
+    res.render('plank/create')
 })
 
 router.post('/foro/comentar', (req, res) => {
