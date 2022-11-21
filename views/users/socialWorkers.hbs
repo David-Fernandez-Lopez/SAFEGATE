@@ -1,1 +1,23 @@
+<a href="/registro-integrador">
+    <input type="submit" class="btn btn-dark" value="Crear nuevo Integrador">
+</a>
 <h1>listado Integradores sociales</h1>
+<div class="row justify-content-center d-flex">
+    {{#each socialWorkers}}
+    <div class="col-md-4 mb-3">
+        <div class="card">
+            <div class="card-body">
+                <img src="{{imageUrl}}" class="card-img-top" alt="{{name}}">
+                <h3 class="card-title text-capitalize">{{name}} {{lastname}}</h3>
+                <p class="card-text">E-mail: {{email}}</p>
+                <p class="card-text">DNI: {{idDocument}}</p>
+                <p class="card-text">Teléfono: {{phoneNumber}}</p>
+                <form action="/integradores/delete/{{_id}}" method="POST" style="display: inline">
+                    <input type="submit" value="Eliminar" class="btn btn-danger">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{{/each}}
+</div>
