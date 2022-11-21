@@ -47,7 +47,7 @@ const userSchema = new Schema(
       type: String,
     },
     address: {
-      street: {
+      addresInfo: {
         type: String,
       },
       province: {
@@ -84,10 +84,10 @@ const userSchema = new Schema(
     },
     previousReport: {
       socialServices: {
-        type: Boolean,
-        tracing: {
-          type:Boolean
-        }
+        type: Boolean
+      },
+      tracing: {
+        type:Boolean
       },
       police: {
         type: Boolean
@@ -110,10 +110,14 @@ const userSchema = new Schema(
     },
     translator: {
       type:Boolean
+    },
+    role: {
+      type: String,
+      enum: ['USER', 'SOCIALWORKER', 'ADMIN'],
+      default: 'USER'
     }
   },
   {
-    // this second object adds extra properties: `createdAt` and `updatedAt`    
     timestamps: true
   }
 );
