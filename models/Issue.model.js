@@ -1,4 +1,5 @@
 const { Schema, model } = require("mongoose");
+
 const issuesSchema = new Schema(
     {
         agression: {
@@ -17,6 +18,10 @@ const issuesSchema = new Schema(
            coordinates: [Number],
           // required: true,
         },
+        owner: {
+            type: Schema.Types.ObjectId,
+            ref: 'User'
+        }
     },
     { 
         timestamps: true

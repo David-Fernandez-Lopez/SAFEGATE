@@ -1,4 +1,5 @@
 const { Schema, model } = require("mongoose");
+
 const foroSchema = new Schema(
     {
         title: {
@@ -9,6 +10,10 @@ const foroSchema = new Schema(
             type: String,
             required: true,
         },
+        owner: {
+            type: Schema.Types.ObjectId,
+            ref: 'User'
+        }
     },
     {
         timestamps: true
