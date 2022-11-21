@@ -1,6 +1,8 @@
 const router = require('express').Router()
 const User = require('../models/User.model')
 
+const uploader = require('./../config/uploader.config')
+
 const bcryptjs = require('bcryptjs')
 const saltRounds = 10
 
@@ -37,10 +39,10 @@ router.get('/registro-usuario', (req, res) => {
     res.render('auth/signup')
 })
 
-router.post('/registro-usuario', (req, res) => {
+router.post('/registro-usuario', uploader.single('imageField'), (req, res) => {
   // res.send("post registro");
 
-  const {name, lastname, email, password, idDocument, username, imageUrl, phoneNumber, birthDate, nationality, addresInfo, province, city, zipCode, emergencyNumber, members, childs, handicapped, divorced, custody, socialServices, tracing, police, precautionaryMeasures, employmentSituation, benefits, supportSistem, translator} = req.body
+  const {name, lastname, email, password, idDocument, username, imageField, phoneNumber, birthDate, nationality, addresInfo, province, city, zipCode, emergencyNumber, members, childs, handicapped, divorced, custody, socialServices, tracing, police, precautionaryMeasures, employmentSituation, benefits, supportSistem, translator} = req.body
   
   const address = { addresInfo, province, city, zipCode }
   
@@ -55,7 +57,7 @@ router.post('/registro-usuario', (req, res) => {
       return bcryptjs.hash(password, salt)
     })
     .then(hashedPassword => {
-      return User.create({ name, lastname, email, password:hashedPassword, idDocument, username, imageUrl, phoneNumber, birthDate, nationality, address, emergencyNumber, familyData, previousReport, employmentSituation, benefits, supportSistem, translator })
+      return User.create({ name, lastname, email, password:hashedPassword, idDocument, username, imageUrl: imageField, phoneNumber, birthDate, nationality, address, emergencyNumber, familyData, previousReport, employmentSituation, benefits, supportSistem, translator })
     })
     .then(() => res.redirect('/'))
     .catch(err => console.log(err))
