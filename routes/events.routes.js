@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const User = require('../models/User.model')
 const Issues = require('../models/Issue.model')
-const Foro = require('../models/Foro.model')
+const Plank = require('../models/Plank.model')
 
 
 router.get('/eventos', (req, res) => {
@@ -43,7 +43,7 @@ router.post('/eventos/eliminar/:id', (req, res) => {
 
 router.get('/foro', (req, res) => {
     // res.send("listado eventos");
-    Foro
+    Plank
         .find()
         .then(comments => {
             res.render('plank/list', { comments })
