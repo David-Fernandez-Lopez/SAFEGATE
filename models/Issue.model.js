@@ -25,7 +25,7 @@ const issuesSchema = new Schema(
     {
         timestamps: true
     }
-);
+)
 
 const Issue = model("Issues", issuesSchema);
 

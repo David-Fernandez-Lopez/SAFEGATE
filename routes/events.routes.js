@@ -30,16 +30,14 @@ router.get('/', isLoggedIn, checkRoles('SOCIALWORKER', 'ADMIN'), (req, res) => {
         .then((owners) => {
             const stringIds = owners.map(elm => elm.owner.toString())
             const uniqueOwners = [...new Set(stringIds)]
-
             const ownerPromises = uniqueOwners.map(elm => Issue.find({ owner: elm }).populate('owner'))
-
             return Promise.all(ownerPromises)
         })
         .then(eventsByOwner => {
-            // console.log(eventsByOwner)
             res.render('issues/list', {
                 eventsByOwner,
-                isAdmin: req.session.currentUser.role === 'ADMIN'})
+                isAdmin: req.session.currentUser.role === 'ADMIN'
+            })
         })
         .catch(err => console.log(err))
 })

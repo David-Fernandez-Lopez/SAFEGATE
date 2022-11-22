@@ -1,8 +1,11 @@
-<h1>Listado eventos</h1>
-<hr>
-<div class="row justify-content-center d-flex">
+<div class="container mt-5">
 
-    {{#each eventsByOwner}}
+    <h1>Listado eventos</h1>
+    <hr>
+
+    <div class="row justify-content-center d-flex">
+
+        {{#each eventsByOwner}}
         <div class="col-md-4 mb-3">
             <div class="card">
                 <div class="card-body">
@@ -14,14 +17,16 @@
                     <p class="card-text text-capitalize"> Descripción: {{description}}</p>
 
                     {{#if ../../isAdmin}}
-                        <form action="/eventos/eliminar/{{_id}}" method="POST">
-                            <input type="submit" value="Eliminar evento" class="btn btn-danger">
-                        </form>
+                    <form action="/eventos/eliminar/{{_id}}" method="POST">
+                        <input type="submit" value="Eliminar evento" class="btn btn-danger">
+                    </form>
                     {{/if}}
-                    {{/each}}
 
+                    {{/each}}
                 </div>
             </div>
         </div>
-    {{/each}}
+
+        {{/each}}
+    </div>
 </div>

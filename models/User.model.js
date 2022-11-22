@@ -75,7 +75,7 @@ const userSchema = new Schema(
         type: Boolean
       },
       divorced: {
-        type:Boolean
+        type: Boolean
       },
       custody: {
         type: String,
@@ -87,7 +87,7 @@ const userSchema = new Schema(
         type: Boolean
       },
       tracing: {
-        type:Boolean
+        type: Boolean
       },
       police: {
         type: Boolean
@@ -102,14 +102,14 @@ const userSchema = new Schema(
     },
     socialHelp: {
       benefits: {
-        type:Boolean
+        type: Boolean
       },
       supportSistem: {
-        type:Boolean
+        type: Boolean
       },
     },
     translator: {
-      type:Boolean
+      type: Boolean
     },
     role: {
       type: String,
@@ -120,7 +120,7 @@ const userSchema = new Schema(
   {
     timestamps: true
   }
-);
+)
 
 const User = model("User", userSchema);
 
