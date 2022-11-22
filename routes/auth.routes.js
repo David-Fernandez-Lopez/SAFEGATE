@@ -44,11 +44,19 @@ router.get('/registro-usuario', isLoggedOut, (req, res) => {
 router.post('/registro-usuario', isLoggedOut, uploader.single('imageField'), (req, res) => {
   // res.send("post registro");
 
+  function defaultValue(property) {
+    if (property.length === 0) {
+      return property = undefined
+    } else {
+      return property
+    }
+  }
+
   const { name, lastname, email, password, idDocument, username, phoneNumber, birthDate, nationality, addresInfo, province, city, zipCode, emergencyNumber, members, childs, handicapped, divorced, custody, socialServices, tracing, police, precautionaryMeasures, employmentSituation, benefits, supportSistem, translator } = req.body
 
   const address = { addresInfo, province, city, zipCode }
 
-  const familyData = { members, childs, handicapped, divorced, custody }
+  const familyData = { members: defaultValue(members), childs, handicapped, divorced, custody }
 
   const previousReport = { socialServices, tracing, police, precautionaryMeasures }
 

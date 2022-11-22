@@ -2,7 +2,7 @@ const router = require('express').Router()
 const User = require('../models/User.model')
 const Issue = require('../models/Issue.model')
 const uploader = require('./../config/uploader.config')
-const { isLoggedIn } = require('./../middleware/route-guard')
+const { isLoggedIn, checkRoles } = require('./../middleware/route-guard')
 
 router.get('/crear', isLoggedIn, (req, res) => {
     // res.send("get crear eventos");
@@ -21,7 +21,7 @@ router.post('/crear', isLoggedIn, (req, res) => {
         .catch(err => console.log(err))
 })
 
-router.get('/', (req, res) => {
+router.get('/', isLoggedIn, checkRoles('SOCIALWORKER', 'ADMIN'), (req, res) => {
 
     Issue
         .find()
@@ -35,13 +35,13 @@ router.get('/', (req, res) => {
             return Promise.all(ownerPromises)
         })
         .then(eventsByOwner => {
-            console.log(eventsByOwner)
+            // console.log(eventsByOwner)
             res.render('issues/list', { eventsByOwner })
         })
         .catch(err => console.log(err))
 })
 
-router.post('/eliminar/:id', (req, res) => {
+router.post('/eliminar/:id', isLoggedIn, checkRoles('ADMIN'), (req, res) => {
 
     const { id: issue_id } = req.params
 

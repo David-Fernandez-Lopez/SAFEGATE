@@ -2,8 +2,9 @@ const router = require('express').Router()
 const User = require('../models/User.model')
 const Issue = require('../models/Issue.model')
 
+const { isLoggedIn, checkRoles } = require('./../middleware/route-guard')
 
-router.get('/listado-integradores', (req, res) => {
+router.get('/listado-integradores', isLoggedIn, checkRoles('ADMIN'), (req, res) => {
     // res.send("listado integradores");
     User
         .find({ role: 'SOCIALWORKER' })
@@ -13,7 +14,7 @@ router.get('/listado-integradores', (req, res) => {
         .catch(err => console.log(err))
 })
 
-router.post('/integradores/borrar/:id', (req, res) => {
+router.post('/integradores/borrar/:id', isLoggedIn, checkRoles('ADMIN'), (req, res) => {
     const { id: socialWorker_id } = req.params
 
     User
@@ -23,7 +24,7 @@ router.post('/integradores/borrar/:id', (req, res) => {
 })
 
 
-router.get('/mi-perfil/:id', (req, res, next) => {
+router.get('/mi-perfil/:id', isLoggedIn, (req, res, next) => {
     const { id: user_id } = req.params
 
 

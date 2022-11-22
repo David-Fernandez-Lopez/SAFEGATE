@@ -38,19 +38,18 @@
                                         <p class="small mb-0 ms-2">Usuario: {{owner.username}}</p>
                                     </div>
 
+                                    {{#if isAdmin}}
                                     <div class="d-flex flex-row align-items-center">
                                         <form action="/foro/eliminar/{{_id}}" method="POST">
                                         <input type="submit" value="Eliminar evento" class="btn btn-danger">
                                         </form>
                                     </div>
-
+                                    {{/if}}
                                 </div>
                             </div>
                         </div>
                     {{/each}}
-
                 </div>
-
             </div>
         </div>
     </div>

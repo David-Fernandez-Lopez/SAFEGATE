@@ -1,19 +1,24 @@
 const router = require('express').Router()
-const User = require('../models/User.model')
-const Plank = require('../models/Plank.model')
+const User = require('./../models/User.model')
+const Plank = require('./../models/Plank.model')
 
-router.get('/', (req, res) => {
+const { isLoggedIn, checkRoles } = require('./../middleware/route-guard')
+
+router.get('/', isLoggedIn, (req, res) => {
     // res.send("listado eventos");
     Plank
         .find()
         .populate('owner', 'username')
         .then(comment => {
-            res.render('plank/list', { comment })
+            res.render('plank/list', {
+                comment,
+                isAdmin: req.session.currentUser.role === 'ADMIN'
+            })
         })
         .catch(err => console.log(err))
 })
 
-router.post('/', (req, res) => {
+router.post('/', isLoggedIn, (req, res) => {
     // res.send("post listado eventos");
 
     const { title, description } = req.body
@@ -29,7 +34,7 @@ router.post('/', (req, res) => {
         .catch(err => console.log(err))
 })
 
-router.post('/eliminar/:id', (req, res) => { 
+router.post('/eliminar/:id', isLoggedIn, checkRoles('ADMIN'), (req, res) => { 
 
     const { id: plank_id } = req.params
     // res.send(plank_id);
