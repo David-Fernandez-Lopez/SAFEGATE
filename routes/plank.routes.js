@@ -12,17 +12,21 @@ router.get('/foro', (req, res) => {
         .catch(err => (err))
 })
 
-router.get('/foro/comentar/:user_id', (req, res) => {
-    const { user_id } = req.params
+router.get('/foro/comentar', (req, res) => {
+    // res.send("get crear eventos");
 
     User
-        .find
-    // res.send("get crear eventos");
-    res.render('plank/create')
+        .find()
+        .select({username:1})
+        .then(users => {
+            const user = {users}
+            res.render('plank/create', {users})
+        })
+        .catch(err => console.log(err))
 })
 
-router.post('/foro/comentar/:user_id', (req, res) => {
-    const { user_id } = req.params
+router.post('/foro/comentar', (req, res) => {
+
     // res.send("post crear eventos")
     res.redirect('/foro')
 })
