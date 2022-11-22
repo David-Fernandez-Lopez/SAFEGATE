@@ -1,10 +1,11 @@
 <div class="container mt-5">
-
     <div class="row justify-content-center">
         <div class="col-md-6">
 
-            <h1>Prueba crear evento</h1>
+            <h1>Crear evento</h1>
+
             <form action="/eventos/crear" method="POST">
+
                 <div>
                     <label for="agression" class="form-label">Tipo de agresión</label>
                     <select class="form-select" name="agression">
@@ -13,18 +14,23 @@
                         <option value="sexual assault">Agresión sexual</option>
                     </select>
                 </div>
+
                 <div class="mb-3">
                     <label for="description" class="form-label">Descripción</label>
                     <input type="textarea" class="form-control" id="description" name="description">
                 </div>
+
                 <div class="mb-3">
                     <label for="location" class="form-label">Ubicación</label>
                     <input type="XXXX" class="form-control" id="location" name="location">
                 </div>
+
                 <div class="d-grid">
                     <button type="submit" class="btn btn-dark block">Crear evento</button>
                 </div>
+
             </form>
+
         </div>
     </div>
 </div>

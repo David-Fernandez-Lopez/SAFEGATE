@@ -18,7 +18,7 @@ const foroSchema = new Schema(
     {
         timestamps: true
     }
-);
+)
 
 const Foro = model("Foro", foroSchema);
 

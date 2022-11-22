@@ -1,7 +1,6 @@
 const router = require('express').Router()
 const User = require('./../models/User.model')
 const Plank = require('./../models/Plank.model')
-
 const { isLoggedIn, checkRoles } = require('./../middleware/route-guard')
 
 router.get('/', isLoggedIn, (req, res) => {
