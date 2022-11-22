@@ -73,11 +73,11 @@ router.post('/registro-usuario', isLoggedOut, uploader.single('imageField'), (re
     .catch(err => console.log(err))
 })
 
-router.get('/registro-integrador', isLoggedOut, (req, res) => {
+router.get('/registro-integrador', isLoggedIn, (req, res) => {
   res.render('auth/socialWorker-signup')
 })
 
-router.post('/registro-integrador', isLoggedOut, uploader.single('imageField'), (req, res) => {
+router.post('/registro-integrador', isLoggedIn, uploader.single('imageField'), (req, res) => {
 
   const { name, lastname, email, password, idDocument, phoneNumber } = req.body
 

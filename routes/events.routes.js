@@ -36,7 +36,9 @@ router.get('/', isLoggedIn, checkRoles('SOCIALWORKER', 'ADMIN'), (req, res) => {
         })
         .then(eventsByOwner => {
             // console.log(eventsByOwner)
-            res.render('issues/list', { eventsByOwner })
+            res.render('issues/list', {
+                eventsByOwner,
+                isAdmin: req.session.currentUser.role === 'ADMIN'})
         })
         .catch(err => console.log(err))
 })
