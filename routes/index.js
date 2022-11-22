@@ -7,13 +7,13 @@ module.exports = app => {
     app.use('/', authRouter)
 
     const eventsRouter = require('./events.routes')
-    app.use('/', eventsRouter)
+    app.use('/eventos', eventsRouter)
 
     const usersRouter = require('./users.routes')
-    app.use('/', usersRouter)
+    app.use('/users', usersRouter)
 
     const plankRouter = require('./plank.routes')
-    app.use('/', plankRouter)
+    app.use('/foro', plankRouter)
 
     // const apiRouter = require('./api.routes')
     // app.use('/api', apiRouter)

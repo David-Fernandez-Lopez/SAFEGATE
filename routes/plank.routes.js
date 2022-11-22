@@ -2,27 +2,39 @@ const router = require('express').Router()
 const User = require('../models/User.model')
 const Plank = require('../models/Plank.model')
 
-router.get('/foro', (req, res) => {
+router.get('/', (req, res) => {
     // res.send("listado eventos");
     Plank
         .find()
-        .populate('owner')
-        .then(comments => {
-            res.render('plank/list', { comments })
+        .populate('owner', 'username')
+        .then(comment => {
+            res.render('plank/list', { comment })
         })
         .catch(err => console.log(err))
 })
 
-router.get('/foro/comentar', (req, res) => {
-    res.render('plank/create')
-})
+router.post('/', (req, res) => {
+    // res.send("post listado eventos");
 
-router.post('/foro/comentar', (req, res) => {
     const { title, description } = req.body
+
     const owner = req.session.currentUser._id
 
     Plank
         .create({ title, description, owner })
+        .then(() => {
+            // res.send({ title, description, owner })
+            res.redirect('/foro')
+        })
+        .catch(err => console.log(err))
+})
+
+router.post('/eliminar/:id', (req, res) => { 
+
+    const { id: plank_id } = req.params
+    // res.send(plank_id);
+    Plank
+        .findByIdAndDelete(plank_id)
         .then(() => {
             res.redirect('/foro')
         })
