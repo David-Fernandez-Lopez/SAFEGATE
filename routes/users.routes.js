@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const User = require('../models/User.model')
 const Issue = require('../models/Issue.model')
-
+const { isLoggedIn } = require('./../middleware/route-guard')
 
 router.get('/listado-integradores', (req, res) => {
     // res.send("listado integradores");
@@ -22,11 +22,18 @@ router.post('/integradores/borrar/:id', (req, res) => {
         .catch(err => console.log(err))
 })
 
-
-router.get('/mi-perfil/:id', (req, res, next) => {
+router.get('/mi-perfil/:id', isLoggedIn, (req, res, next) => {
     const { id: user_id } = req.params
 
-
+    User
+        .findById(user_id)
+        .then(() => {
+            res.send('prueba')
+        })
+        // .then(users => {
+        //     res.render('users/profile', users)
+        // })
+        .catch(err => (err))
 })
 
 module.exports = router
