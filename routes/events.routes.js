@@ -5,13 +5,14 @@ const uploader = require('./../config/uploader.config')
 const { isLoggedIn, checkRoles } = require('./../middleware/route-guard')
 
 router.get('/crear', isLoggedIn, (req, res) => {
-    // res.send("get crear eventos");
+
     res.render('issues/create')
 })
 
 router.post('/crear', isLoggedIn, (req, res) => {
+
     const { agression, description, location } = req.body
-    const owner = req.session.currentUser._id
+    const { _id: owner } = req.session.currentUser
 
     Issue
         .create({ agression, description, location, owner })
@@ -35,7 +36,7 @@ router.get('/', isLoggedIn, checkRoles('SOCIALWORKER', 'ADMIN'), (req, res) => {
             return Promise.all(ownerPromises)
         })
         .then(eventsByOwner => {
-            // console.log(eventsByOwner)
+
             res.render('issues/list', { eventsByOwner })
         })
         .catch(err => console.log(err))
