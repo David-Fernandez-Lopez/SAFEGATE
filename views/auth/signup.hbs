@@ -2,85 +2,88 @@
 
     <div class="row justify-content-center">
 
-        <div class="col-md-6">
+        <div class="col-md-9 col-lg-12">
 
             <h1>¡Bienvenida!</h1>
             <hr>
-                <form action="/registro-usuario" method="POST">
+                <form action="/registro-usuario" method="POST" enctype="multipart/form-data">
+            <div class="row">
 
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" name="email">
-                </div>
+            
+                    <div class="mb-3 col-md-6">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email">
+                    </div>
 
-                <div class="mb-3">
-                    <label for="password" class="form-label">Contraseña</label>
-                    <input type="password" class="form-control" id="password" name="password">
-                    <div id="password" class="form-text">La contraseña debería incluir al menos un dígito, una minúscula, una mayúscula y 8 caracteres.</div>
-                </div>
+                    <div class="mb-3 col-md-6">
+                        <label for="password" class="form-label">Contraseña</label>
+                        <input type="password" class="form-control" id="password" name="password">
+                        <div id="password" class="form-text">La contraseña debería incluir al menos un dígito, una minúscula, una mayúscula y 8 caracteres.</div>
+                    </div>
+                
+                    <div class="mb-3 col-md-6">
+                        <label for="imageUrl" class="form-label">Foto de perfil</label>
+                        <input type="file" class="form-control" id="imageUrl" name="imageField">
+                    </div>
+                
+                    <div class="mb-3 col-md-4">
+                        <label for="name" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="name" name="name">
+                    </div>
 
-                <div class="mb-3">
-                    <label for="name" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="name" name="name">
-                </div>
+                    <div class="mb-3 col-md-4">
+                        <label for="lastname" class="form-label">Apellidos</label>
+                        <input type="text" class="form-control" id="lastname" name="lastname">
+                    </div>
+                
 
-                <div class="mb-3">
-                    <label for="imageUrl" class="form-label">Foto de perfil</label>
-                    <input type="file" class="form-control" id="imageUrl" name="imageField">
-                </div>
-
-                <div class="mb-3">
-                    <label for="lastname" class="form-label">Apellidos</label>
-                    <input type="text" class="form-control" id="lastname" name="lastname">
-                </div>
-
-                <div class="mb-3">
+                <div class="mb-3 col-md-4">
                     <label for="birthDate" class="form-label">Fecha de nacimiento</label>
                     <input type="date" class="form-control" id="birthDate" name="birthDate">
                 </div>
 
-                <div class="mb-3">
+                <div class="mb-3 col-md-4">
                     <label for="idDocument" class="form-label">DNI/NIE</label>
                     <input type="text" class="form-control" id="idDocument" name="idDocument">
                 </div>
 
-                <div class="mb-3">
+                <div class="mb-3 col-md-4">
                     <label for="nationality" class="form-label">Nacionalidad</label>
                     <input type="text" class="form-control" id="nationality" name="nationality">
                 </div>
 
-                <div class="mb-3">
+                <div class="mb-3 col-md-4">
                     <label for="phoneNumber" class="form-label">Teléfono</label>
                     <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber">
                 </div>
 
-                <div class="mb-3">
+                <div class="mb-3 col-md-6">
                     <label for="addresInfo" class="form-label">Dirección completa</label>
                     <input type="text" class="form-control" id="addresInfo" name="addresInfo">
                     <div id="addresInfo" class="form-text">Ej.: C/Violeta 4, Escalera 2, Piso 3 Puerta A</div>
                 </div>
 
-                <div class="mb-3">
+                <div class="mb-3 col-md-3">
                     <label for="province" class="form-label">Provincia</label>
                     <input type="text" class="form-control" id="province" name="province">
                 </div>
 
-                <div class="mb-3">
+                <div class="mb-3 col-md-3">
                     <label for="city" class="form-label">Ciudad</label>
                     <input type="text" class="form-control" id="city" name="city">
                 </div>
 
-                <div class="mb-3">
+                <div class="mb-3 col-md-3">
                     <label for="zipCode" class="form-label">Código Postal</label>
                     <input type="text" class="form-control" id="zipCode" name="zipCode">
                 </div>
                 
-                <div class="mb-3">
+                <div class="mb-3 col-md-4">
                     <label for="username" class="form-label">Apodo</label>
                     <input type="text" class="form-control" id="username" name="username">
                 </div>
 
-                <div class="mb-3">
+                <div class="mb-3 col-md-4">
                     <label for="emergencyNumber" class="form-label">Teléfono contacto de emergencia</label>
                     <input type="tel" class="form-control" id="emergencyNumber" name="emergencyNumber">
                 </div>
@@ -258,7 +261,7 @@
                 <div class="d-grid gap-2">
                     <button type="submit" class="btn btn-dark block">Completar registro</button>
                 </div>
-
+            </div>
             </form>
         </div>
     </div>

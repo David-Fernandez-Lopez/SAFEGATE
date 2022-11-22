@@ -16,7 +16,6 @@ const issuesSchema = new Schema(
                type: String,
            }, 
            coordinates: [Number],
-          // required: true,
         },
         owner: {
             type: Schema.Types.ObjectId,
