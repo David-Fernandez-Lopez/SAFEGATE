@@ -11,10 +11,11 @@
                 {{#each this}}
                 <h3 class="card-title text-capitalize">{{agression}}</h3>
                 <p class="card-text text-capitalize"> Descripción: {{description}}</p>
-                {{/each}}
                 <form action="/eventos/eliminar/{{_id}}" method="POST">
                     <input type="submit" value="Eliminar evento" class="btn btn-danger">
                 </form>
+                {{/each}}
+
             </div>
         </div>
     </div>

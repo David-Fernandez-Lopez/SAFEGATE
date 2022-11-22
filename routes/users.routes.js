@@ -23,11 +23,18 @@ router.post('/integradores/borrar/:id', isLoggedIn, checkRoles('ADMIN'), (req, r
         .catch(err => console.log(err))
 })
 
-
 router.get('/mi-perfil/:id', isLoggedIn, (req, res, next) => {
     const { id: user_id } = req.params
 
-
+    User
+        .findById(user_id)
+        .then(() => {
+            res.send('prueba')
+        })
+        // .then(users => {
+        //     res.render('users/profile', users)
+        // })
+        .catch(err => (err))
 })
 
 module.exports = router
