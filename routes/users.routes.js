@@ -35,7 +35,27 @@ router.get('/mi-perfil/:id', isLoggedIn, (req, res, next) => {
 
         })
 
-        .catch(err => (err))
+        .catch(err => console.log(err))
 })
+
+router.get('/mi-perfil/editar/:id', isLoggedIn, (req, res, next) => {
+    res.send('formulario edicion')
+    // res.render('user/edut-profile-user')
+})
+
+router.post('/mi-perfil/editar/:id', isLoggedIn, (req, res, next) => {
+
+    const { id: user_id } = req.params
+
+    User
+        .findByIdAndUpdate(user_id)
+        .then((user) => {
+            res.redirect('users/profile', user)
+
+        })
+
+        .catch(err => console.log(err))
+})
+
 
 module.exports = router

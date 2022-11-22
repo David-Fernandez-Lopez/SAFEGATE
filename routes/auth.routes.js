@@ -62,7 +62,7 @@ router.post('/registro-usuario', isLoggedOut, uploader.single('imageField'), (re
     .catch(err => console.log(err))
 })
 
-router.get('/registro-integrador', isLoggedOut, (req, res) => {
+router.get('/registro-integrador', isLoggedIn, (req, res) => {
 
   res.render('auth/socialWorker-signup')
 })
@@ -79,7 +79,7 @@ router.post('/registro-integrador', isLoggedIn, uploader.single('imageField'), (
     .then(hashedPassword => {
       return User.create({ role: 'SOCIALWORKER', name, lastname, email, password: hashedPassword, idDocument, imageUrl: req.file.path, phoneNumber })
     })
-    .then(() => res.redirect('/listado-integradores'))
+    .then(() => res.redirect('/users/listado-integradores'))
     .catch(err => console.log(err))
 })
 

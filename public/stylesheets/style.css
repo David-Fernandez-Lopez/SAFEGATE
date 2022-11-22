@@ -3,3 +3,7 @@ body {
   font: sans-serif;
 }
 
+#map {
+  height: 500px;
+  background-color: red;
+}
