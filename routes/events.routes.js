@@ -1,64 +1,48 @@
 const router = require('express').Router()
 const User = require('../models/User.model')
 const Issues = require('../models/Issue.model')
-const Plank = require('../models/Plank.model')
+const uploader = require('./../config/uploader.config')
+const { isLoggedIn } = require('./../middleware/route-guard')
 
 
-router.get('/eventos', (req, res) => {
-    // res.send("listado eventos");
-    Issues
-        .find()
-        .then(issues => {
-            res.render('issues/list', { issues })
-        })
-        .catch(err => (err))
-})
-
-router.get('/eventos/crear', (req, res) => {
+router.get('/eventos/crear', isLoggedIn, (req, res) => {
     // res.send("get crear eventos");
     res.render('issues/create')
 })
 
-router.post('/eventos/crear', (req, res) => {
-    // res.send("post crear eventos")
+router.post('/eventos/crear', isLoggedIn, (req, res) => {
     const { agression, description, location } = req.body
+    const owner = req.session.currentUser._id
 
     Issues
-        .create({ agression, description, location })
-        .then(issues => {
+        .create({ agression, description, location, owner })
+        .then(() => {
             res.redirect('/eventos')
+        })
+        .catch(err => console.log(err))
+})
+
+router.get('/eventos', (req, res) => {
+
+    Issues
+        .find()
+        .populate('owner')
+        .then((issues) => {
+            res.render('issues/list', { issues })
         })
         .catch(err => console.log(err))
 })
 
 router.post('/eventos/eliminar/:id', (req, res) => {
 
-    const { user_id } = req.params
+    const { id: issue_id } = req.params
 
     Issues
-        .findByIdAndDelete(user_id)
-        .then(() => res.redirect('/eventos'))
-        .catch(err => console.log(err))
-})
-
-router.get('/foro', (req, res) => {
-    // res.send("listado eventos");
-    Plank
-        .find()
-        .then(comments => {
-            res.render('plank/list', { comments })
+        .findByIdAndDelete(issue_id)
+        .then(() => {
+            res.redirect('/eventos')
         })
-        .catch(err => (err))
-})
-
-router.get('/foro/comentar', (req, res) => {
-    // res.send("get crear eventos");
-    res.render('plank/create')
-})
-
-router.post('/foro/comentar', (req, res) => {
-    // res.send("post crear eventos")
-    res.redirect('/foro')
+        .catch(err => console.log(err))
 })
 
 module.exports = router

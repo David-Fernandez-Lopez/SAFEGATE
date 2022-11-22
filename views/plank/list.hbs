@@ -1,3 +1,7 @@
+<a href="/foro/comentar">
+    <input type=" submit" class="btn btn-dark" value="Crear nuevo comentario">
+</a>
+
 <h1>Listado comentarios</h1>
 <hr>
 <div class="row justify-content-center d-flex">
@@ -5,16 +9,16 @@
     <div class="col-md-4 mb-3">
         <div class="card">
             <div class="card-body">
+                <h2>{{owner.username}}</h2>
                 <h3 class="card-title text-capitalize">{{title}}</h3>
                 <p class="card-text text-capitalize"> Descripción: {{description}}</p>
-                <form action="/eventos/eliminar/{{_id}}" method="POST">
+                <form action="/foro/eliminar/{{_id}}" method="POST">
                     <input type="submit" value="Eliminar evento" class="btn btn-danger">
                 </form>
-                {{/each}}
-
             </div>
         </div>
     </div>
+    {{/each}}
 </div>
 
 {{!-- <div class="row d-flex justify-content-center">

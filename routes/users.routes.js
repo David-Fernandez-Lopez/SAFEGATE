@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const User = require('../models/User.model')
+const Issues = require('../models/Issue.model')
 
 router.get('/listado-integradores', (req, res) => {
     // res.send("listado integradores");
@@ -11,13 +12,19 @@ router.get('/listado-integradores', (req, res) => {
         .catch(err => console.log(err))
 })
 
-router.post('/integradores/borrar/:socialWorker_id', (req, res) => {
-    const { socialWorker_id } = req.params
+router.post('/integradores/borrar/:id', (req, res) => {
+    const { id: socialWorker_id } = req.params
 
     User
         .findByIdAndDelete(socialWorker_id)
         .then(() => res.redirect('/listado-integradores'))
         .catch(err => console.log(err))
+})
+
+router.get('/mi-perfil/:id', (req, res, next) => {
+    const { id: user_id } = req.params
+
+
 })
 
 module.exports = router

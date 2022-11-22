@@ -6,25 +6,27 @@ router.get('/foro', (req, res) => {
     // res.send("listado eventos");
     Plank
         .find()
+        .populate('owner')
         .then(comments => {
             res.render('plank/list', { comments })
         })
-        .catch(err => (err))
+        .catch(err => console.log(err))
 })
 
-router.get('/foro/comentar/:user_id', (req, res) => {
-    const { user_id } = req.params
-
-    User
-        .find
-    // res.send("get crear eventos");
+router.get('/foro/comentar', (req, res) => {
     res.render('plank/create')
 })
 
-router.post('/foro/comentar/:user_id', (req, res) => {
-    const { user_id } = req.params
-    // res.send("post crear eventos")
-    res.redirect('/foro')
+router.post('/foro/comentar', (req, res) => {
+    const { title, description } = req.body
+    const owner = req.session.currentUser._id
+
+    Plank
+        .create({ title, description, owner })
+        .then(() => {
+            res.redirect('/foro')
+        })
+        .catch(err => console.log(err))
 })
 
 module.exports = router
