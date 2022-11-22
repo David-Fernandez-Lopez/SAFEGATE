@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const User = require('../models/User.model')
-const Issues = require('../models/Issue.model')
+const Issue = require('../models/Issue.model')
+
 
 router.get('/listado-integradores', (req, res) => {
     // res.send("listado integradores");
@@ -20,6 +21,7 @@ router.post('/integradores/borrar/:id', (req, res) => {
         .then(() => res.redirect('/listado-integradores'))
         .catch(err => console.log(err))
 })
+
 
 router.get('/mi-perfil/:id', (req, res, next) => {
     const { id: user_id } = req.params

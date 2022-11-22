@@ -12,21 +12,21 @@ const issuesSchema = new Schema(
             required: true,
         },
         location: {
-           type: {
-               type: String,
-           }, 
-           coordinates: [Number],
+            type: {
+                type: String,
+            },
+            coordinates: [Number],
         },
         owner: {
             type: Schema.Types.ObjectId,
             ref: 'User'
         }
     },
-    { 
+    {
         timestamps: true
     }
 );
 
-const Issues = model("Issues", issuesSchema);
+const Issue = model("Issues", issuesSchema);
 
-module.exports = Issues;
+module.exports = Issue;
