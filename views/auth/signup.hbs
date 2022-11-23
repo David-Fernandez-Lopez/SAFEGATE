@@ -2,7 +2,7 @@
 
     <div class="row justify-content-center">
 
-        <div class="col-md-9 col-lg-12">
+        <div class="col-lg-11">
 
             <h1>¡Bienvenida!</h1>
             <hr>
@@ -88,57 +88,54 @@
                 </div>
                    
                 
-                <div class="row"> 
+                
 
                     <h5>Datos familiares</h5>
 
-                    <div class="col-md-6">
+                    <div class="col-md-5 col-lg-4 text-md-center">
                         <label for="members" class="form-label">¿Cuántos miembros componen la unidad familiar?</label>
                         <input type="number" class="form-control" id="members" name="members">
                     </div>
 
-                    <div class="col-md-6">
-                        <div class="d-flex justify-content-evenly">
-                        <p>¿Menores a cargo?</p>
-                        <div class="form-check">
+                    <div class="d-flex flex-md-column align-items-center col-md-2 text-md-center my-2 my-md-0">
+                        <label>¿Menores a cargo?</label>
+
+                        <div class="form-check ms-5 ms-md-0">
                             <label class="form-check-label" for="childs">Sí</label>
                             <input class="form-check-input" type="radio" id="childs" value="true" name="childs">
                         </div>
-                        <div class="form-check">
+                        <div class="form-check ms-3 ms-md-0">
                             <label class="form-check-label" for="childs">No</label>
                             <input class="form-check-input" type="radio" id="childs" value="false" name="childs">
                         </div>
-                        </div>
                     </div>
 
-                     <div class="col-md-6">
-                        <div class="d-flex justify-content-evenly">
-                        <p>¿Personas con discapacidad?</p>
-                        <div class="form-check">
+                    <div class="d-flex flex-md-column align-items-center col-md-3 col-lg-2 text-md-center my-2 my-md-0">
+                        <label>¿Personas con discapacidad?</label>
+
+                        <div class="form-check ms-5 ms-md-0">
                             <label class="form-check-label" for="handicapped">Sí</label>
                             <input class="form-check-input" type="radio" id="handicapped" value="true" name="handicapped">
                         </div>
-                        <div class="form-check">
+                        <div class="form-check ms-3 ms-md-0">
                             <label class="form-check-label" for="handicapped">No</label>
                             <input class="form-check-input" type="radio" id="handicapped" value="false" name="handicapped">
                         </div>
-                        </div>
                     </div>
 
-                    <div class="col-md-6">
-                        <div class="d-flex justify-content-evenly bg-danger align-items-center">
-                        <p>¿Divorciada?</p>
-                        <div class="form-check">
+                    <div class="d-flex flex-md-column align-items-center col-md-2 text-md-center my-2 my-md-0 bg-danger">
+                        <label>¿Divorciada?</label>
+
+                        <div class="form-check ms-5 ms-md-0">
                             <label class="form-check-label" for="divorced">Sí</label>
                             <input class="form-check-input" type="radio" id="divorced" value="true" name="divorced">
                         </div>
-                        <div class="form-check">
+                        <div class="form-check ms-3 ms-md-0">
                             <label class="form-check-label" for="divorced">No</label>
                             <input class="form-check-input" type="radio" id="divorced" value="false" name="divorced">
                        </div>
-                        </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-lg-2">
                         
                         <label for="custody" class="form-label">Tipo de custodia</label>
                         <select class="form-select" name="custody" id="custody">
@@ -150,10 +147,9 @@
                 
                     </div>
 
-                </div>
+                
  
 
-                <div class="row"> 
                     <h5>Reportes previos</h5>
 
                     
@@ -212,11 +208,9 @@
                     </select>
                 </div>
 
-                <div>
 
                     <h5>Ayudas sociales</h5>
 
-                <div class="row"> 
                     
                     <div class="col">
                         <p>Beneficios sociales</p>
@@ -240,7 +234,6 @@
                             <input class="form-check-input" type="radio" id="supportSistem" value="false" name="supportSistem">
                         </div>
                     </div>
-                </div>
 
 
                 <div class="row">
@@ -259,14 +252,11 @@
 
                 </div>
 
-                </div>
 
                 <div class="d-grid gap-2">
                     <button type="submit" class="btn btn-dark block">Completar registro</button>
                 </div>
-            </div>
             </form>
         </div>
     </div>
-
 </div>

@@ -39,8 +39,8 @@ router.get('/mi-perfil/:id', isLoggedIn, (req, res, next) => {
 })
 
 router.get('/mi-perfil/editar/:id', isLoggedIn, (req, res, next) => {
-    res.send('formulario edicion')
-    // res.render('user/edut-profile-user')
+    // res.send('formulario edicion')
+    res.render('users/edit-profile-user')
 })
 
 router.post('/mi-perfil/editar/:id', isLoggedIn, (req, res, next) => {
