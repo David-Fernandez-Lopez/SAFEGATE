@@ -12,57 +12,60 @@
                     <p class="card-text"> DNI: {{idDocument}}</p>
                     <p class="card-text"> Nacionalidad: {{nationality}}</p>
                     <p class="card-text">Teléfono: {{phoneNumber}}</p>
-                    <p class="card-text">Dirección: {{addresInfo}}, {{province}}, {{Ciudad}}, {{zipCode}}</p>
+                    <p class="card-text">Dirección: {{address.addresInfo}}, {{address.city}}, {{address.province}}, {{address.zipCode}}</p>
                     <p class="card-text">Apodo: {{username}}</p>
                     <p class="card-text">Teléfono de Emergencia: {{emergencyNumber}}</p>
                 </div>
             </div>
         </div>
-    </div>
+    
 
 
-    <div class="row justify-content-center d-flex">
+    
         <div class="col-md-4 mb-3">
             <div class="card">
                 <div class="card-body">
                     <h3 class="card-title">Datos familiares</h3>
-                    <p class="card-text">Miembros en la unidad familiar: {{members}}</p>
-                    <p class="card-text">Menores a cargo: {{childs}}</p>
-                    <p class="card-text">Personas con discapacidad: {{handicapped}}</p>
-                    <p class="card-text">Divorciada: {{divorced}}</p>
-                    <p class="card-text">Tipo de custodia: {{custody}}</p>
+                    <p class="card-text">Miembros en la unidad familiar: {{familyData.members}}</p>
+                    <p class="card-text">Menores a cargo: {{#if familyData.childs}}Sí{{else}}No{{/if}}</p>
+                    <p class="card-text">Personas con discapacidad: {{#if familyData.handicapped}}Sí{{else}}No{{/if}}</p>
+                    <p class="card-text">Divorciada: {{#if familyData.divorced}}Sí{{else}}No{{/if}}</p>
+                    <p class="card-text">Tipo de custodia: {{familyData.custody}}</p>
                 </div>
             </div>
         </div>
-    </div>
+    
 
 
-    <div class="row justify-content-center d-flex">
+   <div class="row justify-content-center d-flex">
         <div class="col-md-4 mb-3">
             <div class="card">
                 <div class="card-body">
                     <h3 class="card-title">Reportes previos</h3>
-                    <p class="card-text">Servicios sociales: {{socialServices}}</p>
-                    <p class="card-text">Seguimiento: {{tracing}}</p>
-                    <p class="card-text">Contacto con policía: {{#if previousReport.police}}Si {{else}}No{{/if}}</p>
-                    <p class="card-text">Medidas Cautelares: {{precautionaryMeasures}}</p>
-                    <p class="card-text">Situación laboral: {{employmentSituation}}</p>
+                    <p class="card-text">Servicios sociales: {{#if previousReport.socialServices}}Sí{{else}}No{{/if}}</p>
+                    <p class="card-text">Seguimiento: {{#if previousReport.tracing}}Sí{{else}}No{{/if}}</p>
+                    <p class="card-text">Contacto con policía: {{#if previousReport.police}}Sí {{else}}No{{/if}}</p>
+                    <p class="card-text">Medidas Cautelares: {{#if previousReport.precautionaryMeasures}}Sí{{else}}No{{/if}}</p>
+                    <p class="card-text">Situación laboral: {{#if previousReport.employmentSituation}}Sí{{else}}No{{/if}}</p>
                 </div>
             </div>
         </div>
-    </div>
 
 
-    <div class="row justify-content-center d-flex">
+    
         <div class="col-md-4 mb-3">
             <div class="card">
                 <div class="card-body">
                     <h3 class="card-title">Ayudas sociales</h3>
-                    <p class="card-text">Beneficios sociales: {{benefits}}</p>
-                    <p class="card-text">Sistema de apoyo: {{supportSistem}}</p>
-                    <p class="card-text">¿Necesita traductor?: {{translator}}</p>
+                    <p class="card-text">Beneficios sociales: {{#if benefits}}Sí{{else}}No{{/if}}</p>
+                    <p class="card-text">Sistema de apoyo: {{#if supportSistem}}Sí{{else}}No{{/if}}</p>
+                    <p class="card-text">¿Necesita traductor?: {{#if translator}}Sí{{else}}No{{/if}}</p>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<a href="/users/mi-perfil/editar/{{currentuserid}}">
+    <input type="submit" class="btn btn-dark" value="Editar Perfil">
+</a>

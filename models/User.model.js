@@ -79,7 +79,7 @@ const userSchema = new Schema(
       },
       custody: {
         type: String,
-        enum: ['single parent', 'shared', 'split', 'third party']
+        enum: ['Monoparentar', 'Compartida', 'Partida', 'Ejercida por terceros', 'No aplica']
       }
     },
     previousReport: {
@@ -98,7 +98,7 @@ const userSchema = new Schema(
     },
     employmentSituation: {
       type: String,
-      enum: ['employed', 'unemployed']
+      enum: ['Empleada', 'Desempleada']
     },
     socialHelp: {
       benefits: {

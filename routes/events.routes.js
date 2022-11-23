@@ -9,10 +9,32 @@ const { isLoggedIn, checkRoles } = require('./../middleware/route-guard')
 
 const issueApi = new issuesService()
 
+router.get('/', isLoggedIn, checkRoles('SOCIALWORKER', 'ADMIN'), (req, res) => {
+
+    Issue
+        .find()
+        .select({ owner: 1, _id: 0 })
+        .then((owners) => {
+            const stringIds = owners.map(elm => elm.owner.toString())
+            const uniqueOwners = [...new Set(stringIds)]
+            const ownerPromises = uniqueOwners.map(elm => Issue.find({ owner: elm }).populate('owner'))
+            return Promise.all(ownerPromises)
+        })
+        .then(eventsByOwner => {
+            res.render('issues/list', {
+                eventsByOwner,
+                isAdmin: req.session.currentUser.role === 'ADMIN'
+            })
+        })
+        .catch(err => console.log(err))
+})
+
+
 router.get('/crear', isLoggedIn, (req, res) => {
 
     res.render('issues/create')
 })
+
 
 router.post('/crear', isLoggedIn, (req, res) => {
 
@@ -33,30 +55,11 @@ router.post('/crear', isLoggedIn, (req, res) => {
          
     
         .then(() => {
-            res.redirect('/eventos')
+            res.redirect('/')
         })
         .catch(err => console.log(err))
 })
 
-router.get('/', isLoggedIn, checkRoles('SOCIALWORKER', 'ADMIN'), (req, res) => {
-
-    Issue
-        .find()
-        .select({ owner: 1, _id: 0 })
-        .then((owners) => {
-            const stringIds = owners.map(elm => elm.owner.toString())
-            const uniqueOwners = [...new Set(stringIds)]
-            const ownerPromises = uniqueOwners.map(elm => Issue.find({ owner: elm }).populate('owner'))
-            return Promise.all(ownerPromises)
-        })
-        .then(eventsByOwner => {
-            res.render('issues/list', {
-                eventsByOwner,
-                isAdmin: req.session.currentUser.role === 'ADMIN'
-            })
-        })
-        .catch(err => console.log(err))
-})
 
 router.post('/eliminar/:id', isLoggedIn, checkRoles('ADMIN'), (req, res) => {
 
