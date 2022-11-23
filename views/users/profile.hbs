@@ -44,7 +44,7 @@
                     <h3 class="card-title">Reportes previos</h3>
                     <p class="card-text">Servicios sociales: {{socialServices}}</p>
                     <p class="card-text">Seguimiento: {{tracing}}</p>
-                    <p class="card-text">Contacto con policía: {{police}}</p>
+                    <p class="card-text">Contacto con policía: {{#if previousReport.police}}Si {{else}}No{{/if}}</p>
                     <p class="card-text">Medidas Cautelares: {{precautionaryMeasures}}</p>
                     <p class="card-text">Situación laboral: {{employmentSituation}}</p>
                 </div>
@@ -58,7 +58,7 @@
             <div class="card">
                 <div class="card-body">
                     <h3 class="card-title">Ayudas sociales</h3>
-                    <p class="card-text">SBeneficios sociales: {{benefits}}</p>
+                    <p class="card-text">Beneficios sociales: {{benefits}}</p>
                     <p class="card-text">Sistema de apoyo: {{supportSistem}}</p>
                     <p class="card-text">¿Necesita traductor?: {{translator}}</p>
                 </div>
