@@ -101,48 +101,50 @@
                                 <p>¿Menores a cargo?</p>
                                 <div class="form-check">
                                     <label class="form-check-label" for="childs">Sí</label>
-                                    <input class="form-check-input" type="radio" id="childs" value="true" name="childs">
+                                    <input class="form-check-input" {{#if familyData.childs }}checked {{/if}}
+                                        type="radio" id="childs" value="true" name="childs">
                                 </div>
                                 <div class="form-check">
                                     <label class="form-check-label" for="childs">No</label>
-                                    <input class="form-check-input" type="radio" id="childs" value="false"
-                                        name="childs">
+                                    <input class="form-check-input" {{#unless familyData.childs }}checked {{/unless}}
+                                        type="radio" id="childs" value="false" name="childs">
                                 </div>
                             </div>
                             <div class="col">
                                 <p>¿Personas con discapacidad?</p>
                                 <div class="form-check">
                                     <label class="form-check-label" for="handicapped">Sí</label>
-                                    <input class="form-check-input" type="radio" id="handicapped" value="true"
-                                        name="handicapped">
+                                    <input class="form-check-input" {{#if familyData.handicapped }}checked {{/if}}
+                                        type="radio" id="handicapped" value="true" name="handicapped">
                                 </div>
                                 <div class="form-check">
                                     <label class="form-check-label" for="handicapped">No</label>
-                                    <input class="form-check-input" type="radio" id="handicapped" value="false"
-                                        name="handicapped">
+                                    <input class="form-check-input" {{#unless familyData.handicapped }}checked
+                                        {{/unless}} type="radio" id="handicapped" value="false" name="handicapped">
                                 </div>
                             </div>
                             <div class="col">
                                 <p>¿Divorciada?</p>
                                 <div class="form-check">
                                     <label class="form-check-label" for="divorced">Sí</label>
-                                    <input class="form-check-input" type="radio" id="divorced" value="true"
-                                        name="divorced">
+                                    <input class="form-check-input" {{#if familyData.divorced }}checked {{/if}}
+                                        type="radio" id="divorced" value="true" name="divorced">
                                 </div>
                                 <div class="form-check">
                                     <label class="form-check-label" for="divorced">No</label>
-                                    <input class="form-check-input" type="radio" id="divorced" value="false"
-                                        name="divorced">
+                                    <input class="form-check-input" {{#unless familyData.divorced }}checked {{/unless}}
+                                        type="radio" id="divorced" value="false" name="divorced">
                                 </div>
                             </div>
                             <div class="col">
 
                                 <label for="custody" class="form-label">Tipo de custodia</label>
-                                <select class="form-select" name="custody" id="custody">
-                                    <option value="single parent">Monoparental</option>
-                                    <option value="shared">Compartida</option>
-                                    <option value="split">Partida</option>
-                                    <option value="third party">Ejercida por terceros</option>
+                                <select class="form-select" selected name="custody" id="custody">
+                                    <option value="Monoparental">Monoparental</option>
+                                    <option value="Compartida">Compartida</option>
+                                    <option value="Partida">Partida</option>
+                                    <option value="Ejercida por terceros">Ejercida por terceros</option>
+                                    <option value="No aplica">No aplica</option>
                                 </select>
 
                             </div>
@@ -161,24 +163,25 @@
                                 <p>Servicios sociales</p>
                                 <div class="form-check">
                                     <label class="form-check-label" for="socialServices">Sí</label>
-                                    <input class="form-check-input" type="radio" id="socialServices" value="true"
-                                        name="socialServices">
+                                    <input class="form-check-input" {{#if previousReport.socialServices }}checked
+                                        {{/if}} type="radio" id="socialServices" value="true" name="socialServices">
                                 </div>
                                 <div class="form-check">
                                     <label class="form-check-label" for="socialServices">No</label>
-                                    <input class="form-check-input" type="radio" id="socialServices" value="false"
+                                    <input class="form-check-input" {{#unless previousReport.socialServices }}checked
+                                        {{/unless}} type="radio" id="socialServices" value="false"
                                         name="socialServices">
                                 </div>
                                 <p>¿Se está realizando seguimiento?</p>
                                 <div class="form-check">
                                     <label class="form-check-label" for="tracing">Sí</label>
-                                    <input class="form-check-input" type="radio" id="tracing" value="true"
-                                        name="tracing">
+                                    <input class="form-check-input" {{#if previousReport.tracing }}checked {{/if}}
+                                        type="radio" id="tracing" value="true" name="tracing">
                                 </div>
                                 <div class="form-check">
                                     <label class="form-check-label" for="tracing">No</label>
-                                    <input class="form-check-input" type="radio" id="tracing" value="false"
-                                        name="tracing">
+                                    <input class="form-check-input" {{#unless previousReport.tracing }}checked
+                                        {{/unless}} type="radio" id="tracing" value="false" name="tracing">
                                 </div>
                             </div>
 
@@ -186,8 +189,8 @@
                                 <p>Policía</p>
                                 <div class="form-check">
                                     <label class="form-check-label" for="police">Sí</label>
-                                    <input class="form-check-input" {{#if previousReport.police }}checked
-                                        {{/if}}type="radio" id="police" value="true" name="police">
+                                    <input class="form-check-input" {{#if previousReport.police }}checked {{/if}}
+                                        type="radio" id="police" value="true" name="police">
                                 </div>
                                 <div class="form-check">
                                     <label class="form-check-label" for="police">No</label>
@@ -200,13 +203,15 @@
                                 <p>Medidas Cautelares</p>
                                 <div class="form-check">
                                     <label class="form-check-label" for="precautionaryMeasures">Sí</label>
-                                    <input class="form-check-input" type="radio" id="precautionaryMeasures" value="true"
+                                    <input class="form-check-input" {{#if previousReport.precautionaryMeasures}}checked
+                                        {{/if}} type="radio" id="precautionaryMeasures" value="true"
                                         name="precautionaryMeasures">
                                 </div>
                                 <div class="form-check">
                                     <label class="form-check-label" for="precautionaryMeasures">No</label>
-                                    <input class="form-check-input" type="radio" id="precautionaryMeasures"
-                                        value="false" name="precautionaryMeasures">
+                                    <input class="form-check-input" {{#unless previousReport.precautionaryMeasures
+                                        }}checked {{/unless}} type="radio" id="precautionaryMeasures" value="false"
+                                        name="precautionaryMeasures">
                                 </div>
                             </div>
                         </div>
@@ -214,9 +219,9 @@
 
                         <div class="mb-3">
                             <label for="employmentSituation" class="form-label">Situación laboral</label>
-                            <select class="form-select" name="employmentSituation">
-                                <option value="employed">Empleada</option>
-                                <option value="unemployed">Desempleada</option>
+                            <select class="form-select" selected name="employmentSituation">
+                                <option value="Empleada">Empleada</option>
+                                <option value="Desempleada">Desempleada</option>
                             </select>
                         </div>
 
@@ -230,25 +235,26 @@
                                     <p>Beneficios sociales</p>
                                     <div class="form-check">
                                         <label class="form-check-label" for="benefits">Sí</label>
-                                        <input class="form-check-input" type="radio" id="benefits" value="true"
-                                            name="benefits">
+                                        <input class="form-check-input" {{#if previousReport.benefits}}checked {{/if}}
+                                            type="radio" id="benefits" value="true" name="benefits">
                                     </div>
                                     <div class="form-check">
                                         <label class="form-check-label" for="benefits">No</label>
-                                        <input class="form-check-input" type="radio" id="benefits" value="false"
-                                            name="benefits">
+                                        <input class="form-check-input" {{#unless previousReport.benefits }}checked
+                                            {{/unless}} type="radio" id="benefits" value="false" name="benefits">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <p>Sistema de apoyo</p>
                                     <div class="form-check">
                                         <label class="form-check-label" for="supportSistem">Sí</label>
-                                        <input class="form-check-input" type="radio" id="supportSistem" value="true"
-                                            name="supportSistem">
+                                        <input class="form-check-input" {{#if previousReport.supportSistem}}checked
+                                            {{/if}} type="radio" id="supportSistem" value="true" name="supportSistem">
                                     </div>
                                     <div class="form-check">
                                         <label class="form-check-label" for="supportSistem">No</label>
-                                        <input class="form-check-input" type="radio" id="supportSistem" value="false"
+                                        <input class="form-check-input" {{#unless previousReport.supportSistem }}checked
+                                            {{/unless}} type="radio" id="supportSistem" value="false"
                                             name="supportSistem">
                                     </div>
                                 </div>
@@ -261,13 +267,13 @@
                                     <p>¿Necesita traductor?</p>
                                     <div class="form-check">
                                         <label class="form-check-label" for="translator">Sí</label>
-                                        <input class="form-check-input" type="radio" id="translator" value="true"
-                                            name="translator">
+                                        <input class="form-check-input" {{#if previousReport.translator}}checked {{/if}}
+                                            type="radio" id="translator" value="true" name="translator">
                                     </div>
                                     <div class="form-check">
                                         <label class="form-check-label" for="translator">No</label>
-                                        <input class="form-check-input" type="radio" id="translator" value="false"
-                                            name="translator">
+                                        <input class="form-check-input" {{#unless previousReport.translator }}checked
+                                            {{/unless}} type="radio" id="translator" value="false" name="translator">
                                     </div>
                                 </div>
 
