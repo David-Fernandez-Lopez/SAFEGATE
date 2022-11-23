@@ -2,7 +2,12 @@ const router = require('express').Router()
 const User = require('../models/User.model')
 const Issue = require('../models/Issue.model')
 const uploader = require('./../config/uploader.config')
+const axios = require("axios")
+const issuesService = require('./../services/issues-location.service')
+
 const { isLoggedIn, checkRoles } = require('./../middleware/route-guard')
+
+const issueApi = new issuesService()
 
 router.get('/crear', isLoggedIn, (req, res) => {
 
@@ -14,8 +19,19 @@ router.post('/crear', isLoggedIn, (req, res) => {
     const { agression, description, location } = req.body
     const { _id: owner } = req.session.currentUser
 
-    Issue
-        .create({ agression, description, location, owner })
+    issueApi
+        .getlocation(location)
+        .then(res => {
+            console.log('esto es', res.data.results[0].geometry.location)
+
+            let place ={
+                type: 'Point',
+                coordinates: [res.data.results[0].geometry.location.lng, res.data.results[0].geometry.location.lat]
+            }
+            return Issue.create({ agression, description, location:place , owner })
+        })
+         
+    
         .then(() => {
             res.redirect('/eventos')
         })
