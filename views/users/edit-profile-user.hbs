@@ -12,32 +12,35 @@
 
                     <div class="mb-3 col-lg-4">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" value={{email}}>
+                        <input type="email" class="form-control" id="email" name="email" value={{user.email}}>
                     </div>
 
                     <div class="mb-3 col-lg-4">
                         <label for="imageUrl" class="form-label">Foto de perfil</label>
-                        <input type="file" class="form-control" id="imageUrl" name="imageField" value={{imageField}}>
+                        <input type="file" class="form-control" id="imageUrl" name="imageField"
+                            value={{user.imageField}}>
                     </div>
 
                     <div class="mb-3 col-md-5 col-lg-4">
                         <label for="name" class="form-label">Nombre</label>
-                        <input type="text" class="form-control" id="name" name="name" value={{name}}>
+                        <input type="text" class="form-control" id="name" name="name" value={{user.name}}>
                     </div>
 
                     <div class="mb-3 col-md-7 col-lg-4">
                         <label for="lastname" class="form-label">Apellidos</label>
-                        <input type="text" class="form-control" id="lastname" name="lastname" value={{lastname}}>
+                        <input type="text" class="form-control" id="lastname" name="lastname" value={{user.lastname}}>
                     </div>
 
                     <div class="mb-3 col-md-6 col-lg-4">
                         <label for="birthDate" class="form-label">Fecha de nacimiento</label>
-                        <input type="date" class="form-control" id="birthDate" name="birthDate" value={{birthDate}}>
+                        <input type="date" class="form-control" id="birthDate" name="birthDate"
+                            value={{user.birthDate}}>
                     </div>
 
                     <div class="mb-3 col-md-6 col-lg-4">
                         <label for="idDocument" class="form-label">DNI/NIE</label>
-                        <input type="text" class="form-control" id="idDocument" name="idDocument" value={{idDocument}}>
+                        <input type="text" class="form-control" id="idDocument" name="idDocument"
+                            value={{user.idDocument}}>
                     </div>
 
                     <div class="mb-3 col-md-6 col-lg-4">
@@ -54,28 +57,29 @@
                     {{!-- RESPONSIVE HASTA AQUÍ --}}
                     <div class="mb-3 col-md-6">
                         <label for="addresInfo" class="form-label">Dirección completa</label>
-                        <input type="text" class="form-control" id="addresInfo" name="addresInfo" value={{addresInfo}}>
+                        <input type="text" class="form-control" id="addresInfo" name="addresInfo"
+                            value={{user.addresInfo}}>
                         <div id="addresInfo" class="form-text">Ej.: C/Violeta 4, Escalera 2, Piso 3 Puerta A</div>
                     </div>
 
                     <div class="mb-3 col-md-3">
                         <label for="province" class="form-label">Provincia</label>
-                        <input type="text" class="form-control" id="province" name="province" value={{province}}>
+                        <input type="text" class="form-control" id="province" name="province" value={{user.province}}>
                     </div>
 
                     <div class="mb-3 col-md-3">
                         <label for="city" class="form-label">Ciudad</label>
-                        <input type="text" class="form-control" id="city" name="city" value={{city}}>
+                        <input type="text" class="form-control" id="city" name="city" value={{user.city}}>
                     </div>
 
                     <div class="mb-3 col-md-3">
                         <label for="zipCode" class="form-label">Código Postal</label>
-                        <input type="text" class="form-control" id="zipCode" name="zipCode" value={{zipCode}}>
+                        <input type="text" class="form-control" id="zipCode" name="zipCode" value={{user.zipCode}}>
                     </div>
 
                     <div class="mb-3 col-md-4">
                         <label for="username" class="form-label">Apodo</label>
-                        <input type="text" class="form-control" id="username" name="username" value={{username}}>
+                        <input type="text" class="form-control" id="username" name="username" value={{user.username}}>
                     </div>
 
                     <div class="mb-3 col-md-4">
@@ -92,7 +96,8 @@
                             <div class="col">
                                 <label for="members" class="form-label">¿Cuántos miembros componen la unidad
                                     familiar?</label>
-                                <input type="number" class="form-control" id="members" name="members" value={{members}}>
+                                <input type="number" class="form-control" id="members" name="members"
+                                    value={{user.members}}>
                             </div>
                             <div class="col">
                                 <p>¿Menores a cargo?</p>

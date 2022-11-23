@@ -10,6 +10,9 @@ require("./config")(app)
 require('./config/session.config')(app)
 
 app.locals.appTitle = `Proyecto 2`
+// app.use((req,res,next) =>{
+
+// })
 
 require("./routes")(app)
 require("./error-handling")(app)
