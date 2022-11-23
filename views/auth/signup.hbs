@@ -9,86 +9,87 @@
 
             <form action="/registro-usuario" method="POST" enctype="multipart/form-data">
                 <div class="row">
-            
-                <div class="mb-3 col-lg-4">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" name="email">
-                </div>
 
-                <div class="mb-3 col-lg-4">
-                    <label for="password" class="form-label">Contraseña</label>
-                    <input type="password" class="form-control" id="password" name="password">
-                    <div id="password" class="form-text">La contraseña debería incluir al menos un dígito, una minúscula, una mayúscula y 8 caracteres.</div>
-                </div>
-                
-                <div class="mb-3 col-lg-4">
-                    <label for="imageUrl" class="form-label">Foto de perfil</label>
-                    <input type="file" class="form-control" id="imageUrl" name="imageField">
-                </div>
-                
-                <div class="mb-3 col-md-5 col-lg-4">
-                    <label for="name" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="name" name="name">
-                </div>
+                    <div class="mb-3 col-lg-4">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email">
+                    </div>
 
-                <div class="mb-3 col-md-7 col-lg-4">
-                    <label for="lastname" class="form-label">Apellidos</label>
-                    <input type="text" class="form-control" id="lastname" name="lastname">
-                </div>
+                    <div class="mb-3 col-lg-4">
+                        <label for="password" class="form-label">Contraseña</label>
+                        <input type="password" class="form-control" id="password" name="password">
+                        <div id="password" class="form-text">La contraseña debería incluir al menos un dígito, una
+                            minúscula, una mayúscula y 8 caracteres.</div>
+                    </div>
 
-                <div class="mb-3 col-md-6 col-lg-4">
-                    <label for="birthDate" class="form-label">Fecha de nacimiento</label>
-                    <input type="date" class="form-control" id="birthDate" name="birthDate">
-                </div>
+                    <div class="mb-3 col-lg-4">
+                        <label for="imageUrl" class="form-label">Foto de perfil</label>
+                        <input type="file" class="form-control" id="imageUrl" name="imageField">
+                    </div>
 
-                <div class="mb-3 col-md-6 col-lg-4">
-                    <label for="idDocument" class="form-label">DNI/NIE</label>
-                    <input type="text" class="form-control" id="idDocument" name="idDocument">
-                </div>
+                    <div class="mb-3 col-md-5 col-lg-4">
+                        <label for="name" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="name" name="name">
+                    </div>
 
-                <div class="mb-3 col-md-6 col-lg-4">
-                    <label for="nationality" class="form-label">Nacionalidad</label>
-                    <input type="text" class="form-control" id="nationality" name="nationality">
-                </div>
+                    <div class="mb-3 col-md-7 col-lg-4">
+                        <label for="lastname" class="form-label">Apellidos</label>
+                        <input type="text" class="form-control" id="lastname" name="lastname">
+                    </div>
 
-                <div class="mb-3 col-md-6 col-lg-4">
-                    <label for="phoneNumber" class="form-label">Teléfono</label>
-                    <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber">
-                </div>
-                
-                <div class="mb-3 col-lg-6">
-                    <label for="addresInfo" class="form-label">Dirección completa</label>
-                    <input type="text" class="form-control" id="addresInfo" name="addresInfo">
-                    <div id="addresInfo" class="form-text">Ej.: C/Violeta 4, Escalera 2, Piso 3 Puerta A</div>
-                </div>
+                    <div class="mb-3 col-md-6 col-lg-4">
+                        <label for="birthDate" class="form-label">Fecha de nacimiento</label>
+                        <input type="date" class="form-control" id="birthDate" name="birthDate">
+                    </div>
 
-                <div class="mb-3 col-md-4 col-lg-2">
-                    <label for="province" class="form-label">Provincia</label>
-                    <input type="text" class="form-control" id="province" name="province">
-                </div>
+                    <div class="mb-3 col-md-6 col-lg-4">
+                        <label for="idDocument" class="form-label">DNI/NIE</label>
+                        <input type="text" class="form-control" id="idDocument" name="idDocument">
+                    </div>
 
-                <div class="mb-3 col-md-4 col-lg-2">
-                    <label for="city" class="form-label">Ciudad</label>
-                    <input type="text" class="form-control" id="city" name="city">
-                </div>
+                    <div class="mb-3 col-md-6 col-lg-4">
+                        <label for="nationality" class="form-label">Nacionalidad</label>
+                        <input type="text" class="form-control" id="nationality" name="nationality">
+                    </div>
 
-                <div class="mb-3 col-md-4 col-lg-2">
-                    <label for="zipCode" class="form-label">Código Postal</label>
-                    <input type="text" class="form-control" id="zipCode" name="zipCode">
-                </div>
-                
-                <div class="mb-3 col-md-6">
-                    <label for="username" class="form-label">Apodo</label>
-                    <input type="text" class="form-control" id="username" name="username">
-                </div>
+                    <div class="mb-3 col-md-6 col-lg-4">
+                        <label for="phoneNumber" class="form-label">Teléfono</label>
+                        <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber">
+                    </div>
 
-                <div class="mb-3 col-md-6">
-                    <label for="emergencyNumber" class="form-label">Teléfono contacto de emergencia</label>
-                    <input type="tel" class="form-control" id="emergencyNumber" name="emergencyNumber">
-                </div>
-                   
-                
-                
+                    <div class="mb-3 col-lg-6">
+                        <label for="addresInfo" class="form-label">Dirección completa</label>
+                        <input type="text" class="form-control" id="addresInfo" name="addresInfo">
+                        <div id="addresInfo" class="form-text">Ej.: C/Violeta 4, Escalera 2, Piso 3 Puerta A</div>
+                    </div>
+
+                    <div class="mb-3 col-md-4 col-lg-2">
+                        <label for="province" class="form-label">Provincia</label>
+                        <input type="text" class="form-control" id="province" name="province">
+                    </div>
+
+                    <div class="mb-3 col-md-4 col-lg-2">
+                        <label for="city" class="form-label">Ciudad</label>
+                        <input type="text" class="form-control" id="city" name="city">
+                    </div>
+
+                    <div class="mb-3 col-md-4 col-lg-2">
+                        <label for="zipCode" class="form-label">Código Postal</label>
+                        <input type="text" class="form-control" id="zipCode" name="zipCode">
+                    </div>
+
+                    <div class="mb-3 col-md-6">
+                        <label for="username" class="form-label">Apodo</label>
+                        <input type="text" class="form-control" id="username" name="username">
+                    </div>
+
+                    <div class="mb-3 col-md-6">
+                        <label for="emergencyNumber" class="form-label">Teléfono contacto de emergencia</label>
+                        <input type="tel" class="form-control" id="emergencyNumber" name="emergencyNumber">
+                    </div>
+
+
+
 
                     <h5>Datos familiares</h5>
 
@@ -115,15 +116,18 @@
 
                         <div class="form-check ms-5 ms-md-0">
                             <label class="form-check-label" for="handicapped">Sí</label>
-                            <input class="form-check-input" type="radio" id="handicapped" value="true" name="handicapped">
+                            <input class="form-check-input" type="radio" id="handicapped" value="true"
+                                name="handicapped">
                         </div>
                         <div class="form-check ms-3 ms-md-0">
                             <label class="form-check-label" for="handicapped">No</label>
-                            <input class="form-check-input" type="radio" id="handicapped" value="false" name="handicapped">
+                            <input class="form-check-input" type="radio" id="handicapped" value="false"
+                                name="handicapped">
                         </div>
                     </div>
 
-                    <div class="d-flex flex-md-column align-items-center col-md-2 text-md-center my-2 my-md-0 bg-danger">
+                    <div
+                        class="d-flex flex-md-column align-items-center col-md-2 text-md-center my-2 my-md-0 bg-danger">
                         <label>¿Divorciada?</label>
 
                         <div class="form-check ms-5 ms-md-0">
@@ -133,35 +137,35 @@
                         <div class="form-check ms-3 ms-md-0">
                             <label class="form-check-label" for="divorced">No</label>
                             <input class="form-check-input" type="radio" id="divorced" value="false" name="divorced">
-                       </div>
+                        </div>
                     </div>
                     <div class="col-md-6 col-lg-2">
-                        
+
                         <label for="custody" class="form-label">Tipo de custodia</label>
                         <select class="form-select" name="custody" id="custody">
-                            <option value="single parent">Monoparental</option>
-                            <option value="shared">Compartida</option>
-                            <option value="split">Partida</option>
-                            <option value="third party">Ejercida por terceros</option>
+                            <option value="Monoparental">Monoparental</option>
+                            <option value="Compartida">Compartida</option>
+                            <option value="Partida">Partida</option>
+                            <option value="Ejercida por terceros">Ejercida por terceros</option>
+                            <option value="No aplica">No aplica</option>
                         </select>
-                
-                    </div>
 
-                
- 
+                    </div>
 
                     <h5>Reportes previos</h5>
 
-                    
+
                     <div class="col">
                         <p>Servicios sociales</p>
                         <div class="form-check">
                             <label class="form-check-label" for="socialServices">Sí</label>
-                            <input class="form-check-input" type="radio" id="socialServices" value="true" name="socialServices">
+                            <input class="form-check-input" type="radio" id="socialServices" value="true"
+                                name="socialServices">
                         </div>
                         <div class="form-check">
                             <label class="form-check-label" for="socialServices">No</label>
-                            <input class="form-check-input" type="radio" id="socialServices" value="false" name="socialServices">
+                            <input class="form-check-input" type="radio" id="socialServices" value="false"
+                                name="socialServices">
                         </div>
                         <p>¿Se está realizando seguimiento?</p>
                         <div class="form-check">
@@ -190,50 +194,54 @@
                         <p>Medidas Cautelares</p>
                         <div class="form-check">
                             <label class="form-check-label" for="precautionaryMeasures">Sí</label>
-                            <input class="form-check-input" type="radio" id="precautionaryMeasures" value="true" name="precautionaryMeasures">
+                            <input class="form-check-input" type="radio" id="precautionaryMeasures" value="true"
+                                name="precautionaryMeasures">
                         </div>
                         <div class="form-check">
                             <label class="form-check-label" for="precautionaryMeasures">No</label>
-                            <input class="form-check-input" type="radio" id="precautionaryMeasures" value="false" name="precautionaryMeasures">
+                            <input class="form-check-input" type="radio" id="precautionaryMeasures" value="false"
+                                name="precautionaryMeasures">
                         </div>
                     </div>
                 </div>
- 
 
-                <div class="mb-3">                    
+
+                <div class="mb-3">
                     <label for="employmentSituation" class="form-label">Situación laboral</label>
                     <select class="form-select" name="employmentSituation">
-                        <option value="employed">Empleada</option>
-                        <option value="unemployed">Desempleada</option>
+                        <option value="Empleada">Empleada</option>
+                        <option value="Desempleada">Desempleada</option>
                     </select>
                 </div>
 
 
-                    <h5>Ayudas sociales</h5>
+                <h5>Ayudas sociales</h5>
 
-                    
-                    <div class="col">
-                        <p>Beneficios sociales</p>
-                        <div class="form-check">
-                            <label class="form-check-label" for="benefits">Sí</label>
-                            <input class="form-check-input" type="radio" id="benefits" value="true" name="benefits">
-                        </div>
-                        <div class="form-check">
-                            <label class="form-check-label" for="benefits">No</label>
-                            <input class="form-check-input" type="radio" id="benefits" value="false" name="benefits">
-                        </div>
+
+                <div class="col">
+                    <p>Beneficios sociales</p>
+                    <div class="form-check">
+                        <label class="form-check-label" for="benefits">Sí</label>
+                        <input class="form-check-input" type="radio" id="benefits" value="true" name="benefits">
                     </div>
-                    <div class="col">
-                        <p>Sistema de apoyo</p>
-                        <div class="form-check">
-                            <label class="form-check-label" for="supportSistem">Sí</label>
-                            <input class="form-check-input" type="radio" id="supportSistem" value="true" name="supportSistem">
-                        </div>
-                        <div class="form-check">
-                            <label class="form-check-label" for="supportSistem">No</label>
-                            <input class="form-check-input" type="radio" id="supportSistem" value="false" name="supportSistem">
-                        </div>
+                    <div class="form-check">
+                        <label class="form-check-label" for="benefits">No</label>
+                        <input class="form-check-input" type="radio" id="benefits" value="false" name="benefits">
                     </div>
+                </div>
+                <div class="col">
+                    <p>Sistema de apoyo</p>
+                    <div class="form-check">
+                        <label class="form-check-label" for="supportSistem">Sí</label>
+                        <input class="form-check-input" type="radio" id="supportSistem" value="true"
+                            name="supportSistem">
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label" for="supportSistem">No</label>
+                        <input class="form-check-input" type="radio" id="supportSistem" value="false"
+                            name="supportSistem">
+                    </div>
+                </div>
 
 
                 <div class="row">
@@ -246,7 +254,8 @@
                         </div>
                         <div class="form-check">
                             <label class="form-check-label" for="translator">No</label>
-                            <input class="form-check-input" type="radio" id="translator" value="false" name="translator">
+                            <input class="form-check-input" type="radio" id="translator" value="false"
+                                name="translator">
                         </div>
                     </div>
 

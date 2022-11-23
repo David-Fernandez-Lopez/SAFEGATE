@@ -62,7 +62,10 @@ router.post('/mi-perfil/editar/:id', isLoggedIn, uploader.single('imageField'), 
 
     const { id: user_id } = req.params
 
-    let imageUrl = ''
+    let imageUrl = undefined
+    if (req.file && req.file.path) {
+        imageUrl = req.file.path
+    }
 
     User
         .findByIdAndUpdate(user_id, { name, lastname, email, idDocument, username, imageUrl, phoneNumber, birthDate, nationality, address, emergencyNumber, familyData, previousReport, employmentSituation, benefits, supportSistem, translator })
