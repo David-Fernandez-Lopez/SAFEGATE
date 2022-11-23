@@ -29,7 +29,6 @@ router.post('/inicio-sesion', isLoggedOut, (req, res) => {
         return
       }
       req.session.currentUser = user
-      req.app.locals.currentuserid = user._id
       res.redirect('/')
     })
     .catch(err => console.log(err))
@@ -50,13 +49,18 @@ router.post('/registro-usuario', isLoggedOut, uploader.single('imageField'), (re
 
   const previousReport = { socialServices, tracing, police, precautionaryMeasures }
 
+  let imageUrl = undefined
+  if (req.file && req.file.path) {
+    imageUrl = req.file.path
+  }
+
   bcryptjs
     .genSalt(saltRounds)
     .then(salt => {
       return bcryptjs.hash(password, salt)
     })
     .then(hashedPassword => {
-      return User.create({ name, lastname, email, password: hashedPassword, idDocument, username, imageUrl: req.file.path, phoneNumber, birthDate, nationality, address, emergencyNumber, familyData, previousReport, employmentSituation, benefits, supportSistem, translator })
+      return User.create({ name, lastname, email, password: hashedPassword, idDocument, username, imageUrl, phoneNumber, birthDate, nationality, address, emergencyNumber, familyData, previousReport, employmentSituation, benefits, supportSistem, translator })
     })
     .then(() => res.redirect('/'))
     .catch(err => console.log(err))
@@ -85,7 +89,6 @@ router.post('/registro-integrador', isLoggedIn, uploader.single('imageField'), (
 
 router.get('/cerrar-sesion', isLoggedIn, (req, res) => {
   req.session.destroy(() => {
-    req.app.locals.currentuserid = null
     res.redirect('/inicio-sesion')
   })
 })

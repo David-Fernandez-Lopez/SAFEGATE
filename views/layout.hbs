@@ -25,6 +25,8 @@
                <li class="nav-item">
                   <a class="nav-link active" aria-current="page" href="/">Inicio</a>
                </li>
+               {{#if currentuserid}}
+               {{#unless user}}
                <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                      aria-expanded="false">
@@ -34,27 +36,38 @@
                      <li><a class="dropdown-item" href="/eventos">Listado eventos</a></li>
                      <li><a class="dropdown-item" href="/eventos/crear">Reportar evento</a></li>
                   </ul>
+                  {{/unless}}
+                  {{#if user}}
+               <li class="nav-item">
+                  <a class="nav-link" href="/eventos/crear">Reportar evento</a>
+               </li>
+               {{/if}}
                </li>
                <li class="nav-item">
                   <a class="nav-link" href="/foro">Foro</a>
                </li>
+               {{#if admin}}
                <li class="nav-item">
                   <a class="nav-link" href="/users/listado-integradores">Listado de integradores</a>
                </li>
+               {{/if}}
                <li class="nav-item">
                   <a class="nav-link" href="/users/mi-perfil/{{currentuserid}}">Mi perfil</a>
                </li>
+               {{/if}}
                <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                      aria-expanded="false">
                      Auth
                   </a>
                   <ul class="dropdown-menu">
+                     {{#unless currentuserid}}
                      <li><a class="dropdown-item" href="/registro-usuario">Registro</a></li>
                      <li><a class="dropdown-item" href="/inicio-sesion">Iniciar sesión</a></li>
                      <li>
                         <hr class="dropdown-divider">
                      </li>
+                     {{/unless}}
                      <li><a class="dropdown-item" href="/cerrar-sesion">Cerrar sesión</a></li>
                   </ul>
                </li>
