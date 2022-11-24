@@ -4,7 +4,7 @@ const issuesSchema = new Schema(
     {
         agression: {
             type: String,
-            enum: ['verbal agression', 'physical agression', 'sexual assault'],
+            enum: ['Agresión verbal', 'Agresión física', 'Agresión sexual'],
             required: true,
         },
         description: {

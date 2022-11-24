@@ -15,6 +15,6 @@ module.exports = app => {
     const plankRouter = require('./plank.routes')
     app.use('/foro', plankRouter)
 
-    // const apiRouter = require('./api.routes')
-    // app.use('/api', apiRouter)
+    const apiRouter = require('./api.routes')
+    app.use('/api', apiRouter)
 }

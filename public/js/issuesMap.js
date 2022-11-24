@@ -2,8 +2,36 @@
 let map
 
 function init() {
-    renderMap()
+  renderMap()
+  getIssues()
 }
+
+
+function getIssues() {
+
+  axios
+    .get('/api/json')
+    .then(response => setMarkers(response.data))
+    .catch(err => console.log(err))
+}
+
+
+function setMarkers(issue) {
+
+  issue.forEach(elm => {
+
+    const lat = elm.location.coordinates[1]
+    const lng = elm.location.coordinates[0]
+
+    const marker = new google.maps.Marker({
+        map,
+        position: { lat, lng },
+        title: elm.agression,
+        animation: google.maps.Animation.DROP
+    })
+})
+}
+
 
 
 function renderMap() {

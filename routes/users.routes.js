@@ -3,6 +3,7 @@ const User = require('../models/User.model')
 const Issue = require('../models/Issue.model')
 const { isLoggedIn, checkRoles } = require('./../middleware/route-guard')
 const uploader = require('./../config/uploader.config')
+const my_birthDate = require('../utils/date.util')
 
 router.get('/listado-integradores', isLoggedIn, checkRoles('ADMIN'), (req, res) => {
 
@@ -33,6 +34,9 @@ router.get('/mi-perfil/:id', isLoggedIn, (req, res, next) => {
     User
         .findById(user_id)
         .then(user => {
+            const birthdate = my_birthDate(user.birthDate)
+            // console.log(birthdate)
+            user.my_birthDate = birthdate
             res.render('users/profile',{
                 user,
                 hasPermissions: req.session.currentUser.role !== 'USER'
