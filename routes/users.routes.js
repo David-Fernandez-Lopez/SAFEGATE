@@ -35,13 +35,13 @@ router.get('/mi-perfil/:id', isLoggedIn, (req, res, next) => {
         .findById(user_id)
         .then(user => {
             const birthdate = my_birthDate(user.birthDate)
-            // console.log(birthdate)
             user.my_birthDate = birthdate
-            res.render('users/profile',{
+            res.render('users/profile', {
                 user,
                 hasPermissions: req.session.currentUser.role !== 'USER'
             })
         })
+
 
         .catch(err => console.log(err))
 })
@@ -54,9 +54,8 @@ router.get('/usuario/:id', isLoggedIn, (req, res, next) => {
         .findById(user_id)
         .then(user => {
             const birthdate = my_birthDate(user.birthDate)
-            // console.log(birthdate)
             user.my_birthDate = birthdate
-            res.render('users/profile-info',{
+            res.render('users/profile-info', {
                 user,
                 hasPermissions: req.session.currentUser.role !== 'USER'
             })
