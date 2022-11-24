@@ -1,31 +1,45 @@
-<div class="container mt-5">
-    <div class="mb-3">
-        <a href="/registro-integrador">
-            <input type="submit" class="btn btn-dark" value="Crear nuevo Integrador">
-        </a>
-    </div>
-
-    <h1>Nuestros integradores:</h1>
-
+<div class="container mt-2">
     <div class="row mt-4">
-
-        {{#each socialWorkers}}
         <div class="col-md-4 mb-2">
-            <div class="card">
-                <div class="card-body">
-                    <img src="{{imageUrl}}" class="card-img-top" alt="{{name}}">
-                    <h3 class="card-title text-capitalize">{{name}} {{lastname}}</h3>
-                    <p class="card-text">E-mail: {{email}}</p>
-                    <p class="card-text">DNI: {{idDocument}}</p>
-                    <p class="card-text">Teléfono: {{phoneNumber}}</p>
-                    <form action="/users/integradores/borrar/{{_id}}" method="POST" style="display: inline">
-                        <input type="submit" value="Eliminar" class="btn btn-danger">
-                    </form>
-                </div>
+            <div class="justify-content-center d-flex"></div>
+        </div>
+        <div class="col-md-4 mb-2">
+            <div class="justify-content-center d-flex ms-5">
+                <h2>Nuestros integradores</h2>
             </div>
         </div>
-
-        {{/each}}
+        <div class="col-md-4 mb-2">
+            <div class="mb-2 d-flex justify-content-end">
+                <a href="/registro-integrador">
+                    <input type="submit" class="btn btn-dark" value="Crear nuevo Integrador">
+                </a>
+            </div>
+        </div>
     </div>
+</div>
+
+
+<hr>
+
+<div class="row mt-4">
+
+    {{#each socialWorkers}}
+    <div class="col-md-4 mb-2">
+        <div class="card">
+            <div class="card-body bg-blue20">
+                <img src="{{imageUrl}}" class="card-img-top" alt="{{name}}">
+                <h3 class="card-title text-capitalize mt-3">{{name}} {{lastname}}</h3>
+                <p class="card-text">E-mail: {{email}}</p>
+                <p class="card-text">DNI: {{idDocument}}</p>
+                <p class="card-text">Teléfono: {{phoneNumber}}</p>
+                <form action="/users/integradores/borrar/{{_id}}" method="POST" style="display: inline">
+                    <input type="submit" value="Eliminar" class="btn btn-danger">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    {{/each}}
+</div>
 
 </div>
