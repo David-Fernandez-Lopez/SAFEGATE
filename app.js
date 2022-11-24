@@ -9,7 +9,7 @@ require("./config")(app)
 
 require('./config/session.config')(app)
 
-app.locals.appTitle = `Proyecto 2`
+app.locals.appTitle = `SafeGate`
 app.use((req, res, next) => {
     if (req.session.currentUser) {
         app.locals.currentuserid = req.session.currentUser._id
