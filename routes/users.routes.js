@@ -22,7 +22,7 @@ router.post('/integradores/borrar/:id', isLoggedIn, checkRoles('ADMIN'), (req, r
     User
         .findByIdAndDelete(socialWorker_id)
         .then(() => {
-            res.redirect('/listado-integradores')
+            res.redirect('/users/listado-integradores')
         })
         .catch(err => console.log(err))
 })
