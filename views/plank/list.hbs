@@ -1,20 +1,22 @@
+<div class="container">
+
 
     <div class="row d-flex justify-content-center">
         
-        <div class="card shadow-0 border" style="background-color: #f0f2f5;">
+        <div class="card border bg-0">
             <div class="card-body p-4 d-flex flex-column">
 
-                <div class="col-md-8 align-self-center">
-                    <div class="form-outline mb-4 bg-light p-2 rounded">
+                <div class="col-12 col-md-8 align-self-center">
+                    <div class="form-outline mb-4 bg-blue20 p-3 rounded">
 
                         <form action="/foro" method="POST">
                             <label for="title" class="form-label">Título</label>
                             <input type="text" class="form-control" id="title" name="title">
 
-                            <label for="description" class="form-label">Descripción</label>
+                            <label for="description" class="form-label mt-2">Descripción</label>
                             <input type="textarea" class="form-control" id="description" name="description">
 
-                            <div class="d-grid gap-2 mt-2">
+                            <div class="d-grid gap-2 mt-4">
                             <button type="submit" class="btn btn-dark block">Crear comentario</button>
                             </div>
                         </form>
@@ -22,20 +24,20 @@
                     </div>
                 </div>
             
-                <div class="col-md-8 col-lg-12 align-self-center">
+                <div class="col-12 col-md-8 col-lg-12 align-self-center">
 
                     {{#each comment}}
-                        <div class="card mb-4">
+                        <div class="card mb-4 bg-blue20">
                             <div class="card-body">
 
-                                <h5 class="ms-2">{{title}}</h5>
+                                <h5 class="ms-2 bg-light p-2 rounded">{{title}}</h5>
 
-                                <p class="ms-2">{{description}}</p>
+                                <p class="ms-2 bg-light p-2 rounded">{{description}}</p>
 
                                 <div class="d-flex justify-content-between">
 
                                     <div class="d-flex flex-row align-items-center">
-                                        <p class="small mb-0 ms-2">Usuario: {{owner.username}}</p>
+                                        <p class="small mb-0 ms-2 bg-light p-2 rounded">Usuario: {{owner.username}}</p>
                                     </div>
 
                                     {{#if ../isAdmin}}
@@ -45,12 +47,15 @@
                                         </form>
                                     </div>
                                     {{/if}}
+                                    
                                 </div>
                             </div>
                         </div>
                     {{/each}}
+
                 </div>
             </div>
         </div>
     </div>
 
+</div>

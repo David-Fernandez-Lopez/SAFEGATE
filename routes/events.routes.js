@@ -44,7 +44,6 @@ router.post('/crear', isLoggedIn, (req, res) => {
     issueApi
         .getlocation(location)
         .then(res => {
-            console.log('esto es', res.data.results[0].geometry.location)
 
             let place ={
                 type: 'Point',

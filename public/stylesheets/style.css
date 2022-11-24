@@ -3,8 +3,10 @@ body {
 }
 
 #map {
-  height: 500px;
-  background-color: red;
+  height: 80vh;
+  /* background-color: rgb(28, 190, 185, 0.2); */
+  border: solid rgb(28, 190, 185, 0.2) 20px;
+  border-radius: 20px;
 }
 
 .imgIssuesContainer {
@@ -17,6 +19,19 @@ body {
 .imgIssue{
   height: auto;
   width: 100%;
+}
+
+
+.bg-dark {
+  background-color: rgb(121, 0, 243, 0.6)!important;
+}
+
+.btn-dark {
+  background-color: rgb(121, 0, 243, 0.6)!important;
+}
+
+.btn-danger {
+  background-color: rgb(121, 0, 243, 0.6)!important;
 }
 
 .bg-violet100 {
@@ -41,4 +56,16 @@ body {
 
 .bg-violet10 {
   background-color: rgb(121, 0, 243, 0.1);
+}
+
+.bg-0 {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.bg-blue20 {
+  background-color: rgb(28, 190, 185, 0.2);
+}
+
+.text-bold{
+  font-weight:600;
 }

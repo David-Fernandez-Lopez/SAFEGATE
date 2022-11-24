@@ -5,12 +5,12 @@
 <ul class="list-group">
 {{#each eventsByOwner}}
 
-  <li class="list-group-item rounded  bg-violet20 ">
+  <li class="list-group-item rounded bg-blue20 ">
 
     <div class="row">
 
         <div class="col-md-2 mt-2">
-            <div class="rounded bg-dark bg-opacity-25 p-2">
+            <div class="rounded bg-dark bg-opacity-10 p-2">
                 <a href="/users/usuario/{{this.[0].owner._id}}"><img src="{{this.[0].owner.imageUrl}}" class="imgIssue" alt="{{this.[0].owner.name}}"></a>
             </div>
         
@@ -25,7 +25,7 @@
 
 
                     {{#each this}}
-                    <div class="border border-2 border-opacity-25 rounded d-flex align-items-center mt-1 bg-violet20">
+                    <div class="rounded d-flex align-items-center mt-1 bg-light bg-opacity-50">
 
                         <div class="col-md-10">
 
@@ -34,11 +34,11 @@
                             
                         </div>
 
-                        <div class="col-md-2 bg-light">
+                        <div class="col-md-2">
 
                         {{#if ../../isAdmin}}
                         <form action="/eventos/eliminar/{{_id}}" method="POST">
-                            <input type="submit" value="Eliminar evento" class="btn btn-danger">
+                            <input type="submit" value="Eliminar evento" class="btn btn-dark">
                         </form>
                         {{/if}}
 
@@ -63,32 +63,4 @@
 
 </ul>
 
-
-
-    <div class="row justify-content-center d-flex">
-
-        {{#each eventsByOwner}}
-        <div class="col-md-4 mb-3">
-            <div class="card">
-                <div class="card-body">
-                    <a href="/users/usuario/{{this.[0].owner._id}}"><img src="{{this.[0].owner.imageUrl}}" class="card-img-top" alt="{{this.[0].owner.name}}"></a>
-                    <h2>{{this.[0].owner.name}} {{this.[0].owner.lastname}}</h2>
-
-                    {{#each this}}
-                    <h3 class="card-title">{{agression}}</h3>
-                    <p class="card-text"> Descripción: {{description}}</p>
-
-                    {{#if ../../isAdmin}}
-                    <form action="/eventos/eliminar/{{_id}}" method="POST">
-                        <input type="submit" value="Eliminar evento" class="btn btn-danger">
-                    </form>
-                    {{/if}}
-
-                    {{/each}}
-                </div>
-            </div>
-        </div>
-
-        {{/each}}
-    </div>
 </div>
