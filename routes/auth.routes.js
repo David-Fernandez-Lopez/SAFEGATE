@@ -49,6 +49,8 @@ router.post('/registro-usuario', isLoggedOut, uploader.single('imageField'), (re
 
   const previousReport = { socialServices, tracing, police, precautionaryMeasures }
 
+  const socialHelp = { benefits, supportSistem }
+
   let imageUrl = undefined
   if (req.file && req.file.path) {
     imageUrl = req.file.path
@@ -60,7 +62,7 @@ router.post('/registro-usuario', isLoggedOut, uploader.single('imageField'), (re
       return bcryptjs.hash(password, salt)
     })
     .then(hashedPassword => {
-      return User.create({ name, lastname, email, password: hashedPassword, idDocument, username, imageUrl, phoneNumber, birthDate, nationality, address, emergencyNumber, familyData, previousReport, employmentSituation, benefits, supportSistem, translator })
+      return User.create({ name, lastname, email, password: hashedPassword, idDocument, username, imageUrl, phoneNumber, birthDate, nationality, address, emergencyNumber, familyData, previousReport, employmentSituation, socialHelp, translator })
     })
     .then(() => res.redirect('/'))
     .catch(err => console.log(err))
