@@ -46,6 +46,25 @@ router.get('/mi-perfil/:id', isLoggedIn, (req, res, next) => {
         .catch(err => console.log(err))
 })
 
+router.get('/usuario/:id', isLoggedIn, (req, res, next) => {
+
+    const { id: user_id } = req.params
+
+    User
+        .findById(user_id)
+        .then(user => {
+            const birthdate = my_birthDate(user.birthDate)
+            // console.log(birthdate)
+            user.my_birthDate = birthdate
+            res.render('users/profile-info',{
+                user,
+                hasPermissions: req.session.currentUser.role !== 'USER'
+            })
+        })
+
+        .catch(err => console.log(err))
+})
+
 router.get('/mi-perfil/editar/:id', isLoggedIn, (req, res, next) => {
     const { id: user_id } = req.params
 

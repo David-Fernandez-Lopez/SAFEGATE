@@ -9,12 +9,12 @@
         <div class="col-md-4 mb-3">
             <div class="card">
                 <div class="card-body">
-                    <img src="{{this.[0].owner.imageUrl}}" class="card-img-top" alt="{{this.[0].owner.name}}">
+                    <a href="/users/usuario/{{this.[0].owner._id}}"><img src="{{this.[0].owner.imageUrl}}" class="card-img-top" alt="{{this.[0].owner.name}}"></a>
                     <h2>{{this.[0].owner.name}} {{this.[0].owner.lastname}}</h2>
 
                     {{#each this}}
-                    <h3 class="card-title text-capitalize">{{agression}}</h3>
-                    <p class="card-text text-capitalize"> Descripción: {{description}}</p>
+                    <h3 class="card-title">{{agression}}</h3>
+                    <p class="card-text"> Descripción: {{description}}</p>
 
                     {{#if ../../isAdmin}}
                     <form action="/eventos/eliminar/{{_id}}" method="POST">

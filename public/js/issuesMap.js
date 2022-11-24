@@ -26,7 +26,7 @@ function setMarkers(issue) {
     const marker = new google.maps.Marker({
         map,
         position: { lat, lng },
-        title: elm.agression,
+        title: `${elm.agression}, Descripción: ${elm.description}`,
         animation: google.maps.Animation.DROP
     })
 })
