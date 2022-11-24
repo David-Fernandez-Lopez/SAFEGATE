@@ -89,7 +89,7 @@ router.post('/registro-integrador', isLoggedIn, uploader.single('imageField'), (
 
 router.get('/cerrar-sesion', isLoggedIn, (req, res) => {
   req.session.destroy(() => {
-    res.redirect('/inicio-sesion')
+    res.redirect('/')
   })
 })
 

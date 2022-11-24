@@ -5,32 +5,34 @@
         <div class="col-md-4 mb-3">
             <div class="card">
                 <div class="card-body">
-                    <img src="{{imageUrl}}" class="card-img-top" alt="{{name}}">
-                    <h3 class="card-title">{{name}} {{lastname}}</h3>
-                    <p class="card-text"> Email: {{email}}</p>
-                    <p class="card-text"> Fecha de nacimiento: {{birthDate}}</p>
-                    <p class="card-text"> DNI: {{idDocument}}</p>
-                    <p class="card-text"> Nacionalidad: {{nationality}}</p>
-                    <p class="card-text">Teléfono: {{phoneNumber}}</p>
-                    <p class="card-text">Dirección: {{address.addresInfo}}, {{address.city}}, {{address.province}}, {{address.zipCode}}</p>
-                    <p class="card-text">Apodo: {{username}}</p>
-                    <p class="card-text">Teléfono de Emergencia: {{emergencyNumber}}</p>
+                    <img src="{{user.imageUrl}}" class="card-img-top" alt="{{user.name}}">
+                    <h3 class="card-title">{{user.name}} {{user.lastname}}</h3>
+                    <p class="card-text"> Email: {{user.email}}</p>
+                    <p class="card-text"> Fecha de nacimiento: {{user.birthDate}}</p>
+                    <p class="card-text"> DNI: {{user.idDocument}}</p>
+                    <p class="card-text"> Nacionalidad: {{user.nationality}}</p>
+                    <p class="card-text">Teléfono: {{user.phoneNumber}}</p>
+                    <p class="card-text">Dirección: {{user.address.addresInfo}}, {{user.address.city}}, {{user.address.province}}, {{user.address.zipCode}}</p>
+                    {{#unless hasPermissions}}
+                    <p class="card-text">Apodo: {{user.username}}</p>
+                    <p class="card-text">Teléfono de Emergencia: {{user.emergencyNumber}}</p>
+                    {{/unless}}
                 </div>
             </div>
         </div>
     
-
+        {{#unless hasPermissions}}
 
     
         <div class="col-md-4 mb-3">
             <div class="card">
                 <div class="card-body">
                     <h3 class="card-title">Datos familiares</h3>
-                    <p class="card-text">Miembros en la unidad familiar: {{familyData.members}}</p>
-                    <p class="card-text">Menores a cargo: {{#if familyData.childs}}Sí{{else}}No{{/if}}</p>
-                    <p class="card-text">Personas con discapacidad: {{#if familyData.handicapped}}Sí{{else}}No{{/if}}</p>
-                    <p class="card-text">Divorciada: {{#if familyData.divorced}}Sí{{else}}No{{/if}}</p>
-                    <p class="card-text">Tipo de custodia: {{familyData.custody}}</p>
+                    <p class="card-text">Miembros en la unidad familiar: {{user.familyData.members}}</p>
+                    <p class="card-text">Menores a cargo: {{#if user.familyData.childs}}Sí{{else}}No{{/if}}</p>
+                    <p class="card-text">Personas con discapacidad: {{#if user.familyData.handicapped}}Sí{{else}}No{{/if}}</p>
+                    <p class="card-text">Divorciada: {{#if user.familyData.divorced}}Sí{{else}}No{{/if}}</p>
+                    <p class="card-text">Tipo de custodia: {{user.familyData.custody}}</p>
                 </div>
             </div>
         </div>
@@ -42,11 +44,11 @@
             <div class="card">
                 <div class="card-body">
                     <h3 class="card-title">Reportes previos</h3>
-                    <p class="card-text">Servicios sociales: {{#if previousReport.socialServices}}Sí{{else}}No{{/if}}</p>
-                    <p class="card-text">Seguimiento: {{#if previousReport.tracing}}Sí{{else}}No{{/if}}</p>
-                    <p class="card-text">Contacto con policía: {{#if previousReport.police}}Sí {{else}}No{{/if}}</p>
-                    <p class="card-text">Medidas Cautelares: {{#if previousReport.precautionaryMeasures}}Sí{{else}}No{{/if}}</p>
-                    <p class="card-text">Situación laboral: {{#if previousReport.employmentSituation}}Sí{{else}}No{{/if}}</p>
+                    <p class="card-text">Servicios sociales: {{#if user.previousReport.socialServices}}Sí{{else}}No{{/if}}</p>
+                    <p class="card-text">Seguimiento: {{#if user.previousReport.tracing}}Sí{{else}}No{{/if}}</p>
+                    <p class="card-text">Contacto con policía: {{#if user.previousReport.police}}Sí {{else}}No{{/if}}</p>
+                    <p class="card-text">Medidas Cautelares: {{#if user.previousReport.precautionaryMeasures}}Sí{{else}}No{{/if}}</p>
+                    <p class="card-text">Situación laboral: {{#if user.previousReport.employmentSituation}}Sí{{else}}No{{/if}}</p>
                 </div>
             </div>
         </div>
@@ -57,15 +59,15 @@
             <div class="card">
                 <div class="card-body">
                     <h3 class="card-title">Ayudas sociales</h3>
-                    <p class="card-text">Beneficios sociales: {{#if benefits}}Sí{{else}}No{{/if}}</p>
-                    <p class="card-text">Sistema de apoyo: {{#if supportSistem}}Sí{{else}}No{{/if}}</p>
-                    <p class="card-text">¿Necesita traductor?: {{#if translator}}Sí{{else}}No{{/if}}</p>
+                    <p class="card-text">Beneficios sociales: {{#if user.benefits}}Sí{{else}}No{{/if}}</p>
+                    <p class="card-text">Sistema de apoyo: {{#if user.supportSistem}}Sí{{else}}No{{/if}}</p>
+                    <p class="card-text">¿Necesita traductor?: {{#if user.translator}}Sí{{else}}No{{/if}}</p>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
+{{/unless}}
 <a href="/users/mi-perfil/editar/{{currentuserid}}">
     <input type="submit" class="btn btn-dark" value="Editar Perfil">
 </a>

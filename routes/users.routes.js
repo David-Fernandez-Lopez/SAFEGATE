@@ -32,8 +32,11 @@ router.get('/mi-perfil/:id', isLoggedIn, (req, res, next) => {
 
     User
         .findById(user_id)
-        .then((user) => {
-            res.render('users/profile', user)
+        .then(user => {
+            res.render('users/profile',{
+                user,
+                hasPermissions: req.session.currentUser.role !== 'USER'
+            })
         })
 
         .catch(err => console.log(err))
@@ -44,8 +47,11 @@ router.get('/mi-perfil/editar/:id', isLoggedIn, (req, res, next) => {
 
     User
         .findById(user_id)
-        .then((user) => {
-            res.render('users/edit-profile-user', user)
+        .then(user => {
+            res.render('users/edit-profile-user', {
+                user,
+                hasPermissions: req.session.currentUser.role !== 'USER'
+            })
         })
         .catch(err => console.log(err))
 })

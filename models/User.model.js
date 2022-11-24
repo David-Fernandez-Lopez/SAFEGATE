@@ -79,7 +79,7 @@ const userSchema = new Schema(
       },
       custody: {
         type: String,
-        enum: ['Monoparentar', 'Compartida', 'Partida', 'Ejercida por terceros', 'No aplica']
+        enum: ['Monoparental', 'Compartida', 'Partida', 'Ejercida por terceros', 'No aplica']
       }
     },
     previousReport: {

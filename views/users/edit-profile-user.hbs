@@ -76,6 +76,8 @@
                         <input type="text" class="form-control" id="zipCode" name="zipCode" value='{{address.zipCode}}'>
                     </div>
 
+                    {{#unless hasPermissions}}
+
                     <div class="mb-3 col-md-4">
                         <label for="username" class="form-label">Apodo</label>
                         <input type="text" class="form-control" id="username" name="username" value='{{username}}'>
@@ -281,6 +283,8 @@
                             </div>
 
                         </div>
+                        
+                        {{/unless}}
 
                         <div class="d-grid gap-2">
                             <button type="submit" class="btn btn-dark block">Completar registro</button>
