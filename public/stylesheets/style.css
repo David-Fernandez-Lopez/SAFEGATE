@@ -6,3 +6,39 @@ body {
   height: 500px;
   background-color: red;
 }
+
+.imgIssuesContainer {
+  height: 200px;
+  width: 200px;
+  display: flex;
+  align-items: center;
+}
+
+.imgIssue{
+  height: auto;
+  width: 100%;
+}
+
+.bg-violet100 {
+  background-color: rgb(121, 0, 243, 1);
+}
+
+.bg-violet80 {
+  background-color: rgb(121, 0, 243, 0.8);
+}
+
+.bg-violet60 {
+  background-color: rgb(121, 0, 243, 0.6);
+}
+
+.bg-violet40 {
+  background-color: rgb(121, 0, 243, 0.4);
+}
+
+.bg-violet20 {
+  background-color: rgb(121, 0, 243, 0.2);
+}
+
+.bg-violet10 {
+  background-color: rgb(121, 0, 243, 0.1);
+}

@@ -1,7 +1,69 @@
 <div class="container mt-5">
 
-    <h1>Listado eventos</h1>
-    <hr>
+
+
+<ul class="list-group">
+{{#each eventsByOwner}}
+
+  <li class="list-group-item rounded  bg-violet20 ">
+
+    <div class="row">
+
+        <div class="col-md-2 mt-2">
+            <div class="rounded bg-dark bg-opacity-25 p-2">
+                <a href="/users/usuario/{{this.[0].owner._id}}"><img src="{{this.[0].owner.imageUrl}}" class="imgIssue" alt="{{this.[0].owner.name}}"></a>
+            </div>
+        
+        </div>
+
+        <div class="col-md-10 mt-2">
+            <h2 class="ms-5">{{this.[0].owner.name}} {{this.[0].owner.lastname}}</h2>
+            <hr>
+
+
+                <div class="row">
+
+
+                    {{#each this}}
+                    <div class="border border-2 border-opacity-25 rounded d-flex align-items-center mt-1 bg-violet20">
+
+                        <div class="col-md-10">
+
+                        <h3>{{agression}}</h3>
+                        <p> Descripción: {{description}}</p>
+                            
+                        </div>
+
+                        <div class="col-md-2 bg-light">
+
+                        {{#if ../../isAdmin}}
+                        <form action="/eventos/eliminar/{{_id}}" method="POST">
+                            <input type="submit" value="Eliminar evento" class="btn btn-danger">
+                        </form>
+                        {{/if}}
+
+                        </div>
+
+
+                    </div>
+
+
+                    {{/each}}
+
+
+                </div>
+        </div>
+        <div class="col-md-2">
+            
+        </div>
+    </div>
+  </li>
+ 
+{{/each}}
+
+</ul>
+
+
 
     <div class="row justify-content-center d-flex">
 
