@@ -6,87 +6,89 @@
 
             <h1>Editar perfil</h1>
             <hr>
-
             <form action="/users/mi-perfil/editar/{{currentuserid}}" method="POST" enctype="multipart/form-data">
                 <div class="row">
 
                     <div class="mb-3 col-lg-4">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" value='{{email}}'>
+                        <input type="email" class="form-control" id="email" name="email" value='{{user.email}}'>
                     </div>
 
                     <div class="mb-3 col-lg-4">
                         <label for="imageUrl" class="form-label">Foto de perfil</label>
-                        <input type="file" class="form-control" id="imageUrl" name="imageField" value='{{imageField}}'>
+                        <input type="file" class="form-control" id="imageUrl" name="imageField"
+                            value='{{user.imageField}}'>
                     </div>
 
                     <div class="mb-3 col-md-5 col-lg-4">
                         <label for="name" class="form-label">Nombre</label>
-                        <input type="text" class="form-control" id="name" name="name" value='{{name}}'>
+                        <input type="text" class="form-control" id="name" name="name" value='{{user.name}}'>
                     </div>
 
                     <div class="mb-3 col-md-7 col-lg-4">
                         <label for="lastname" class="form-label">Apellidos</label>
-                        <input type="text" class="form-control" id="lastname" name="lastname" value='{{lastname}}'>
+                        <input type="text" class="form-control" id="lastname" name="lastname" value='{{user.lastname}}'>
                     </div>
 
-                    <div class="mb-3 col-md-6 col-lg-4">
+                    {{!-- <div class="mb-3 col-md-6 col-lg-4">
                         <label for="birthDate" class="form-label">Fecha de nacimiento</label>
-                        <input type="date" class="form-control" id="birthDate" name="birthDate" value='{{birthDate}}'>
-                    </div>
+                        <input type="date" class="form-control" id="birthDate" name="birthDate"
+                            value='{{user.birthDate}}'>
+                    </div> --}}
 
                     <div class="mb-3 col-md-6 col-lg-4">
                         <label for="idDocument" class="form-label">DNI/NIE</label>
                         <input type="text" class="form-control" id="idDocument" name="idDocument"
-                            value='{{idDocument}}'>
+                            value='{{user.idDocument}}'>
                     </div>
 
                     <div class="mb-3 col-md-6 col-lg-4">
                         <label for="nationality" class="form-label">Nacionalidad</label>
                         <input type="text" class="form-control" id="nationality" name="nationality"
-                            value='{{nationality}}'>
+                            value='{{user.nationality}}'>
                     </div>
 
                     <div class="mb-3 col-md-6 col-lg-4">
                         <label for="phoneNumber" class="form-label">Teléfono</label>
                         <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber"
-                            value='{{phoneNumber}}'>
+                            value='{{user.phoneNumber}}'>
                     </div>
                     {{!-- RESPONSIVE HASTA AQUÍ --}}
                     <div class="mb-3 col-md-6">
                         <label for="addresInfo" class="form-label">Dirección completa</label>
                         <input type="text" class="form-control" id="addresInfo" name="addresInfo"
-                            value='{{address.addresInfo}}'>
+                            value='{{user.address.addresInfo}}'>
                         <div id="addresInfo" class="form-text">Ej.: C/Violeta 4, Escalera 2, Piso 3 Puerta A</div>
                     </div>
 
                     <div class="mb-3 col-md-3">
                         <label for="province" class="form-label">Provincia</label>
                         <input type="text" class="form-control" id="province" name="province"
-                            value='{{address.province}}'>
+                            value='{{user.address.province}}'>
                     </div>
 
                     <div class="mb-3 col-md-3">
                         <label for="city" class="form-label">Ciudad</label>
-                        <input type="text" class="form-control" id="city" name="city" value='{{address.city}}'>
+                        <input type="text" class="form-control" id="city" name="city" value='{{user.address.city}}'>
                     </div>
 
                     <div class="mb-3 col-md-3">
                         <label for="zipCode" class="form-label">Código Postal</label>
-                        <input type="text" class="form-control" id="zipCode" name="zipCode" value='{{address.zipCode}}'>
+                        <input type="text" class="form-control" id="zipCode" name="zipCode"
+                            value='{{user.address.zipCode}}'>
                     </div>
 
                     {{#unless hasPermissions}}
 
                     <div class="mb-3 col-md-4">
                         <label for="username" class="form-label">Apodo</label>
-                        <input type="text" class="form-control" id="username" name="username" value='{{username}}'>
+                        <input type="text" class="form-control" id="username" name="username" value='{{user.username}}'>
                     </div>
 
                     <div class="mb-3 col-md-4">
                         <label for="emergencyNumber" class="form-label">Teléfono contacto de emergencia</label>
                         <input type="tel" class="form-control" id="emergencyNumber" name="emergencyNumber"
-                            value='{{emergencyNumber}}'>
+                            value='{{user.emergencyNumber}}'>
                     </div>
 
                     <div>
@@ -98,31 +100,31 @@
                                 <label for="members" class="form-label">¿Cuántos miembros componen la unidad
                                     familiar?</label>
                                 <input type="number" class="form-control" id="members" name="members"
-                                    value='{{members}}'>
+                                    value='{{user.familyData.members}}'>
                             </div>
                             <div class="col">
                                 <p>¿Menores a cargo?</p>
                                 <div class="form-check">
                                     <label class="form-check-label" for="childs">Sí</label>
-                                    <input class="form-check-input" {{#if familyData.childs }}checked {{/if}}
+                                    <input class="form-check-input" {{#if user.familyData.childs }}checked {{/if}}
                                         type="radio" id="childs" value="true" name="childs">
                                 </div>
                                 <div class="form-check">
                                     <label class="form-check-label" for="childs">No</label>
-                                    <input class="form-check-input" {{#unless familyData.childs }}checked {{/unless}}
-                                        type="radio" id="childs" value="false" name="childs">
+                                    <input class="form-check-input" {{#unless user.familyData.childs }}checked
+                                        {{/unless}} type="radio" id="childs" value="false" name="childs">
                                 </div>
                             </div>
                             <div class="col">
                                 <p>¿Personas con discapacidad?</p>
                                 <div class="form-check">
                                     <label class="form-check-label" for="handicapped">Sí</label>
-                                    <input class="form-check-input" {{#if familyData.handicapped }}checked {{/if}}
+                                    <input class="form-check-input" {{#if user.familyData.handicapped }}checked {{/if}}
                                         type="radio" id="handicapped" value="true" name="handicapped">
                                 </div>
                                 <div class="form-check">
                                     <label class="form-check-label" for="handicapped">No</label>
-                                    <input class="form-check-input" {{#unless familyData.handicapped }}checked
+                                    <input class="form-check-input" {{#unless user.familyData.handicapped }}checked
                                         {{/unless}} type="radio" id="handicapped" value="false" name="handicapped">
                                 </div>
                             </div>
@@ -130,24 +132,30 @@
                                 <p>¿Divorciada?</p>
                                 <div class="form-check">
                                     <label class="form-check-label" for="divorced">Sí</label>
-                                    <input class="form-check-input" {{#if familyData.divorced }}checked {{/if}}
+                                    <input class="form-check-input" {{#if user.familyData.divorced }}checked {{/if}}
                                         type="radio" id="divorced" value="true" name="divorced">
                                 </div>
                                 <div class="form-check">
                                     <label class="form-check-label" for="divorced">No</label>
-                                    <input class="form-check-input" {{#unless familyData.divorced }}checked {{/unless}}
-                                        type="radio" id="divorced" value="false" name="divorced">
+                                    <input class="form-check-input" {{#unless user.familyData.divorced }}checked
+                                        {{/unless}} type="radio" id="divorced" value="false" name="divorced">
                                 </div>
                             </div>
                             <div class="col">
 
                                 <label for="custody" class="form-label">Tipo de custodia</label>
                                 <select class="form-select" selected name="custody" id="custody">
-                                    <option value="Monoparental">Monoparental</option>
-                                    <option value="Compartida">Compartida</option>
-                                    <option value="Partida">Partida</option>
-                                    <option value="Ejercida por terceros">Ejercida por terceros</option>
-                                    <option value="No aplica">No aplica</option>
+                                    <option {{#if user.whichcustody.isFirst}} selected {{/if}} value="Monoparental">
+                                        Monoparental</option>
+                                    <option {{#if user.whichcustody.isSecond}} selected {{/if}} value="Compartida">
+                                        Compartida</option>
+                                    <option {{#if user.whichcustody.isThird}} selected {{/if}} value="Partida">Partida
+                                    </option>
+                                    <option {{#if user.whichcustody.isFourth}} selected {{/if}}
+                                        value="Ejercida por terceros">Ejercida por
+                                        terceros</option>
+                                    <option {{#if user.whichcustody.isFifth}} selected {{/if}} value="No aplica">No
+                                        aplica</option>
                                 </select>
 
                             </div>
@@ -166,24 +174,24 @@
                                 <p>Servicios sociales</p>
                                 <div class="form-check">
                                     <label class="form-check-label" for="socialServices">Sí</label>
-                                    <input class="form-check-input" {{#if previousReport.socialServices }}checked
+                                    <input class="form-check-input" {{#if user.previousReport.socialServices }}checked
                                         {{/if}} type="radio" id="socialServices" value="true" name="socialServices">
                                 </div>
                                 <div class="form-check">
                                     <label class="form-check-label" for="socialServices">No</label>
-                                    <input class="form-check-input" {{#unless previousReport.socialServices }}checked
-                                        {{/unless}} type="radio" id="socialServices" value="false"
+                                    <input class="form-check-input" {{#unless user.previousReport.socialServices
+                                        }}checked {{/unless}} type="radio" id="socialServices" value="false"
                                         name="socialServices">
                                 </div>
                                 <p>¿Se está realizando seguimiento?</p>
                                 <div class="form-check">
                                     <label class="form-check-label" for="tracing">Sí</label>
-                                    <input class="form-check-input" {{#if previousReport.tracing }}checked {{/if}}
+                                    <input class="form-check-input" {{#if user.previousReport.tracing }}checked {{/if}}
                                         type="radio" id="tracing" value="true" name="tracing">
                                 </div>
                                 <div class="form-check">
                                     <label class="form-check-label" for="tracing">No</label>
-                                    <input class="form-check-input" {{#unless previousReport.tracing }}checked
+                                    <input class="form-check-input" {{#unless user.previousReport.tracing }}checked
                                         {{/unless}} type="radio" id="tracing" value="false" name="tracing">
                                 </div>
                             </div>
@@ -192,12 +200,12 @@
                                 <p>Policía</p>
                                 <div class="form-check">
                                     <label class="form-check-label" for="police">Sí</label>
-                                    <input class="form-check-input" {{#if previousReport.police }}checked {{/if}}
+                                    <input class="form-check-input" {{#if user.previousReport.police }}checked {{/if}}
                                         type="radio" id="police" value="true" name="police">
                                 </div>
                                 <div class="form-check">
                                     <label class="form-check-label" for="police">No</label>
-                                    <input class="form-check-input" {{#unless previousReport.police }}checked
+                                    <input class="form-check-input" {{#unless user.previousReport.police }}checked
                                         {{/unless}} type="radio" id="police" value="false" name="police">
                                 </div>
                             </div>
@@ -206,13 +214,13 @@
                                 <p>Medidas Cautelares</p>
                                 <div class="form-check">
                                     <label class="form-check-label" for="precautionaryMeasures">Sí</label>
-                                    <input class="form-check-input" {{#if previousReport.precautionaryMeasures}}checked
-                                        {{/if}} type="radio" id="precautionaryMeasures" value="true"
-                                        name="precautionaryMeasures">
+                                    <input class="form-check-input" {{#if
+                                        user.previousReport.precautionaryMeasures}}checked {{/if}} type="radio"
+                                        id="precautionaryMeasures" value="true" name="precautionaryMeasures">
                                 </div>
                                 <div class="form-check">
                                     <label class="form-check-label" for="precautionaryMeasures">No</label>
-                                    <input class="form-check-input" {{#unless previousReport.precautionaryMeasures
+                                    <input class="form-check-input" {{#unless user.previousReport.precautionaryMeasures
                                         }}checked {{/unless}} type="radio" id="precautionaryMeasures" value="false"
                                         name="precautionaryMeasures">
                                 </div>
@@ -223,8 +231,10 @@
                         <div class="mb-3">
                             <label for="employmentSituation" class="form-label">Situación laboral</label>
                             <select class="form-select" selected name="employmentSituation">
-                                <option value="Empleada">Empleada</option>
-                                <option value="Desempleada">Desempleada</option>
+                                <option {{#if user.whichemploymentSituation.isFirst}} selected {{/if}} value="Empleada">
+                                    Empleada</option>
+                                <option {{#if user.whichemploymentSituation.isSecond}} selected {{/if}}
+                                    value="Desempleada">Desempleada</option>
                             </select>
                         </div>
 
@@ -238,12 +248,12 @@
                                     <p>Beneficios sociales</p>
                                     <div class="form-check">
                                         <label class="form-check-label" for="benefits">Sí</label>
-                                        <input class="form-check-input" {{#if previousReport.benefits}}checked {{/if}}
+                                        <input class="form-check-input" {{#if user.socialHelp.benefits}}checked {{/if}}
                                             type="radio" id="benefits" value="true" name="benefits">
                                     </div>
                                     <div class="form-check">
                                         <label class="form-check-label" for="benefits">No</label>
-                                        <input class="form-check-input" {{#unless previousReport.benefits }}checked
+                                        <input class="form-check-input" {{#unless user.socialHelp.benefits}}checked
                                             {{/unless}} type="radio" id="benefits" value="false" name="benefits">
                                     </div>
                                 </div>
@@ -251,13 +261,13 @@
                                     <p>Sistema de apoyo</p>
                                     <div class="form-check">
                                         <label class="form-check-label" for="supportSistem">Sí</label>
-                                        <input class="form-check-input" {{#if previousReport.supportSistem}}checked
+                                        <input class="form-check-input" {{#if user.socialHelp.supportSistem}}checked
                                             {{/if}} type="radio" id="supportSistem" value="true" name="supportSistem">
                                     </div>
                                     <div class="form-check">
                                         <label class="form-check-label" for="supportSistem">No</label>
-                                        <input class="form-check-input" {{#unless previousReport.supportSistem }}checked
-                                            {{/unless}} type="radio" id="supportSistem" value="false"
+                                        <input class="form-check-input" {{#unless user.socialHelp.supportSistem
+                                            }}checked {{/unless}} type="radio" id="supportSistem" value="false"
                                             name="supportSistem">
                                     </div>
                                 </div>
@@ -270,20 +280,20 @@
                                     <p>¿Necesita traductor?</p>
                                     <div class="form-check">
                                         <label class="form-check-label" for="translator">Sí</label>
-                                        <input class="form-check-input" {{#if previousReport.translator}}checked {{/if}}
+                                        <input class="form-check-input" {{#if user.translator}}checked {{/if}}
                                             type="radio" id="translator" value="true" name="translator">
                                     </div>
                                     <div class="form-check">
                                         <label class="form-check-label" for="translator">No</label>
-                                        <input class="form-check-input" {{#unless previousReport.translator }}checked
-                                            {{/unless}} type="radio" id="translator" value="false" name="translator">
+                                        <input class="form-check-input" {{#unless user.translator }}checked {{/unless}}
+                                            type="radio" id="translator" value="false" name="translator">
                                     </div>
                                 </div>
 
                             </div>
 
                         </div>
-                        
+
                         {{/unless}}
 
                         <div class="d-grid gap-2">

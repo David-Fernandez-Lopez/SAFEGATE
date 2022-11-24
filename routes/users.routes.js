@@ -52,6 +52,39 @@ router.get('/mi-perfil/editar/:id', isLoggedIn, (req, res, next) => {
     User
         .findById(user_id)
         .then(user => {
+            user.whichcustody = {}
+            user.whichemploymentSituation = {}
+            switch (user.familyData.custody) {
+                case 'Monoparental':
+                    console.log('First')
+                    user.whichcustody.isFirst = true
+                    break
+                case 'Compartida':
+                    console.log('Second')
+                    user.whichcustody.isSecond = true
+                    break
+                case 'Partida':
+                    console.log('Third')
+                    user.whichcustody.isThird = true
+                    break
+                case 'Ejercida por terceros':
+                    console.log('fourth')
+                    user.whichcustody.isFourth = true
+                    break
+                case 'No aplica':
+                    console.log('fifth')
+                    user.whichcustody.isFifth = true
+                    break
+            }
+
+            switch (user.employmentSituation) {
+                case 'Empleada': user.whichemploymentSituation.isFirst = true
+                    break
+                case 'Desempleada': user.whichemploymentSituation.isSecond = true
+                    break
+            }
+
+
             res.render('users/edit-profile-user', {
                 user,
                 hasPermissions: req.session.currentUser.role !== 'USER'
@@ -70,6 +103,8 @@ router.post('/mi-perfil/editar/:id', isLoggedIn, uploader.single('imageField'), 
 
     const previousReport = { socialServices, tracing, police, precautionaryMeasures }
 
+    const socialHelp = { benefits, supportSistem }
+
     const { id: user_id } = req.params
 
     let imageUrl = undefined
@@ -78,7 +113,7 @@ router.post('/mi-perfil/editar/:id', isLoggedIn, uploader.single('imageField'), 
     }
 
     User
-        .findByIdAndUpdate(user_id, { name, lastname, email, idDocument, username, imageUrl, phoneNumber, birthDate, nationality, address, emergencyNumber, familyData, previousReport, employmentSituation, benefits, supportSistem, translator })
+        .findByIdAndUpdate(user_id, { name, lastname, email, idDocument, username, imageUrl, phoneNumber, birthDate, nationality, address, emergencyNumber, familyData, previousReport, employmentSituation, socialHelp, translator })
         .then(() => {
             res.redirect(`/users/mi-perfil/${user_id}`)
 
