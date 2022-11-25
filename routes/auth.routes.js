@@ -31,7 +31,10 @@ router.post('/inicio-sesion', isLoggedOut, (req, res) => {
       req.session.currentUser = user
       res.redirect('/')
     })
-    .catch(err => console.log(err))
+    .catch(err => {
+            console.log(err)
+            next()
+        })
 })
 
 router.get('/registro-usuario', isLoggedOut, (req, res) => {
@@ -65,7 +68,10 @@ router.post('/registro-usuario', isLoggedOut, uploader.single('imageField'), (re
       return User.create({ name, lastname, email, password: hashedPassword, idDocument, username, imageUrl, phoneNumber, birthDate, nationality, address, emergencyNumber, familyData, previousReport, employmentSituation, socialHelp, translator })
     })
     .then(() => res.redirect('/'))
-    .catch(err => console.log(err))
+    .catch(err => {
+            console.log(err)
+            next()
+        })
 })
 
 router.get('/registro-integrador', isLoggedIn, (req, res) => {
@@ -86,7 +92,10 @@ router.post('/registro-integrador', isLoggedIn, uploader.single('imageField'), (
       return User.create({ role: 'SOCIALWORKER', name, lastname, email, password: hashedPassword, idDocument, imageUrl: req.file.path, phoneNumber })
     })
     .then(() => res.redirect('/users/listado-integradores'))
-    .catch(err => console.log(err))
+    .catch(err => {
+            console.log(err)
+            next()
+        })
 })
 
 router.get('/cerrar-sesion', isLoggedIn, (req, res) => {

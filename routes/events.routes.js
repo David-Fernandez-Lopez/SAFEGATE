@@ -26,7 +26,10 @@ router.get('/', isLoggedIn, checkRoles('SOCIALWORKER', 'ADMIN'), (req, res) => {
                 isAdmin: req.session.currentUser.role === 'ADMIN'
             })
         })
-        .catch(err => console.log(err))
+        .catch(err => {
+            console.log(err)
+            next()
+        })
 })
 
 
@@ -56,7 +59,10 @@ router.post('/crear', isLoggedIn, (req, res) => {
         .then(() => {
             res.redirect('/')
         })
-        .catch(err => console.log(err))
+        .catch(err => {
+            console.log(err)
+            next()
+        })
 })
 
 
@@ -69,7 +75,10 @@ router.post('/eliminar/:id', isLoggedIn, checkRoles('ADMIN'), (req, res) => {
         .then(() => {
             res.redirect('/eventos')
         })
-        .catch(err => console.log(err))
+        .catch(err => {
+            console.log(err)
+            next()
+        })
 })
 
 module.exports = router
