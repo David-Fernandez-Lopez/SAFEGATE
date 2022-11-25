@@ -14,7 +14,10 @@ router.get('/', isLoggedIn, (req, res) => {
                 isAdmin: req.session.currentUser.role === 'ADMIN'
             })
         })
-        .catch(err => console.log(err))
+        .catch(err => {
+            console.log(err)
+            next()
+        })
 })
 
 router.post('/', isLoggedIn, (req, res) => {
@@ -27,7 +30,10 @@ router.post('/', isLoggedIn, (req, res) => {
         .then(() => {
             res.redirect('/foro')
         })
-        .catch(err => console.log(err))
+        .catch(err => {
+            console.log(err)
+            next()
+        })
 })
 
 router.post('/eliminar/:id', isLoggedIn, checkRoles('ADMIN'), (req, res) => {
@@ -39,7 +45,10 @@ router.post('/eliminar/:id', isLoggedIn, checkRoles('ADMIN'), (req, res) => {
         .then(() => {
             res.redirect('/foro')
         })
-        .catch(err => console.log(err))
+        .catch(err => {
+            console.log(err)
+            next()
+        })
 })
 
 module.exports = router

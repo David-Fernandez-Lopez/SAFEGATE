@@ -12,7 +12,10 @@ router.get('/listado-integradores', isLoggedIn, checkRoles('ADMIN'), (req, res) 
         .then(socialWorkers => {
             res.render('users/socialWorkers', { socialWorkers })
         })
-        .catch(err => console.log(err))
+        .catch(err => {
+            console.log(err)
+            next()
+        })
 })
 
 router.post('/integradores/borrar/:id', isLoggedIn, checkRoles('ADMIN'), (req, res) => {
@@ -24,7 +27,10 @@ router.post('/integradores/borrar/:id', isLoggedIn, checkRoles('ADMIN'), (req, r
         .then(() => {
             res.redirect('/users/listado-integradores')
         })
-        .catch(err => console.log(err))
+        .catch(err => {
+            console.log(err)
+            next()
+        })
 })
 
 router.get('/mi-perfil/:id', isLoggedIn, (req, res, next) => {
@@ -34,8 +40,6 @@ router.get('/mi-perfil/:id', isLoggedIn, (req, res, next) => {
     User
         .findById(user_id)
         .then(user => {
-            // const birthdate = my_birthDate(user.birthDate)
-            // user.my_birthDate = birthdate
             res.render('users/profile', {
                 user,
                 hasPermissions: req.session.currentUser.role !== 'USER'
@@ -43,7 +47,10 @@ router.get('/mi-perfil/:id', isLoggedIn, (req, res, next) => {
         })
 
 
-        .catch(err => console.log(err))
+        .catch(err => {
+            console.log(err)
+            next()
+        })
 })
 
 router.get('/usuario/:id', isLoggedIn, (req, res, next) => {
@@ -61,7 +68,10 @@ router.get('/usuario/:id', isLoggedIn, (req, res, next) => {
             })
         })
 
-        .catch(err => console.log(err))
+        .catch(err => {
+            console.log(err)
+            next()
+        })
 })
 
 router.get('/mi-perfil/editar/:id', isLoggedIn, (req, res, next) => {
@@ -102,13 +112,15 @@ router.get('/mi-perfil/editar/:id', isLoggedIn, (req, res, next) => {
                     break
             }
 
-
             res.render('users/edit-profile-user', {
                 user,
                 hasPermissions: req.session.currentUser.role !== 'USER'
             })
         })
-        .catch(err => console.log(err))
+        .catch(err => {
+            console.log(err)
+            next()
+        })
 })
 
 router.post('/mi-perfil/editar/:id', isLoggedIn, uploader.single('imageField'), (req, res, next) => {
@@ -136,7 +148,10 @@ router.post('/mi-perfil/editar/:id', isLoggedIn, uploader.single('imageField'), 
             res.redirect(`/users/mi-perfil/${user_id}`)
 
         })
-        .catch(err => console.log(err))
+        .catch(err => {
+            console.log(err)
+            next()
+        })
 })
 
 module.exports = router
