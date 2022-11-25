@@ -1,21 +1,110 @@
 <div class="container mt-5">
-    <h1>{{user.name}} {{user.lastname}}</h1>
+    <div class="d-flex justify-content-center">
 
+    <h2>{{user.name}} {{user.lastname}}</h2>
+    </div>
+    <hr>
+
+
+                <div class="row bg-blue20 rounded mb-1">
+                    <div class="d-flex align-center justify-content-center col-md-4 bg-blue20">                    
+                        <img src="{{user.imageUrl}}" class="img-fluid rounded-start" alt="{{user.name}}">
+                    </div>
+                    <div class="col-md-4 text-center p-4">
+
+                        <h6>Email</h6>
+                        <p>{{user.email}}</p>
+                        <h6>Fecha de nacimiento</h6>
+                        <p>{{user.my_birthDate}}</p>
+                        <h6>DNI</h6>
+                        <p>{{user.idDocument}}</p>
+                        <h6>Nacionalidad</h6>
+                        <p>{{user.nationality}}</p>
+                            
+                    </div>
+                    <div class="col-md-4 text-center p-4 bg-blue20">
+                        <h6>Teléfono</h6>
+                        <p>{{user.phoneNumber}}</p>
+                        <h6>Dirección</h6>
+                        <p>{{user.address.addresInfo}}, {{user.address.city}},
+                            {{user.address.province}}, {{user.address.zipCode}}</p>
+                        <h6>Apodo</h6>
+                        <p>{{user.username}}</p>
+                        <h6>Teléfono de Emergencia</h6>
+                        <p>{{user.emergencyNumber}}</p>
+                        
+                    </div>
+                </div>
+
+    <div class="row bg-blue20 rounded mb-3">
+
+        <div class="col-md-4 p-4 pb-0 text-center">
+            <h4 >Datos familiares</h4>
+            <hr>
+            <h6>Miembros en la unidad familiar</h6>
+            <p >{{user.familyData.members}}</p>
+            <h6>Menores a cargo</h6>
+            <p >{{#if user.familyData.childs}}Sí{{else}}No{{/if}}</p>
+            <h6>Personas con discapacidad</h6>
+            <p >{{#if
+                user.familyData.handicapped}}Sí{{else}}No{{/if}}</p>
+            <h6>Divorciada</h6>
+            <p >{{#if user.familyData.divorced}}Sí{{else}}No{{/if}}</p>
+            <h6>Tipo de custodia</h6>
+            <p >{{user.familyData.custody}}</p>
+            
+        </div>
+    
+        
+
+        <div class="col-md-4 p-4 pb-0 text-center bg-blue20">
+            <h4>Reportes previos</h4>
+            <hr>
+            <h6>Servicios sociales</h6>
+            <p>{{#if user.previousReport.socialServices}}Sí{{else}}No{{/if}}</p>
+            <h6>Seguimiento</h6>
+            <p>{{#if user.previousReport.tracing}}Sí{{else}}No{{/if}}</p>
+            <h6>Contacto con policía</h6>
+            <p>{{#if user.previousReport.police}}Sí
+                {{else}}No{{/if}}</p>
+            <h6>Medidas Cautelares</h6>
+            <p>{{#if user.previousReport.precautionaryMeasures}}Sí{{else}}No{{/if}}</p>
+            <h6>Situación laboral</h6>
+            <p>{{#if user.previousReport.employmentSituation}}Empleada{{else}}Desempleada{{/if}}</p>
+        </div>
+              
+
+
+
+        <div class="col-md-4 p-4 pb-0 text-center">
+            <h4>Ayudas sociales</h4>
+            <hr>
+            <h6>Beneficios sociales</h6>
+            <p>{{#if user.socialHelp.benefits}}Sí{{else}}No{{/if}}</p>
+            <h6>¿Dispone de un sistema de apoyo? <br> (Familia, amigos...)</h6>
+            <p>{{#if user.socialHelp.supportSistem}}Sí{{else}}No{{/if}}</p>
+            <h6>¿Necesita traductor?</h6>
+            <p>{{#if user.translator}}Sí{{else}}No{{/if}}</p>
+        </div>
+    </div>
+</div>
+
+{{!-- 
     <div class="row justify-content-center d-flex">
         <div class="col-md-4 mb-3">
             <div class="card">
                 <div class="card-body">
                     <img src="{{user.imageUrl}}" class="card-img-top" alt="{{user.name}}">
-                    <h3 class="card-title">{{user.name}} {{user.lastname}}</h3>
-                    <p class="card-text"> Email: {{user.email}}</p>
-                    <p class="card-text"> Fecha de nacimiento: {{user.my_birthDate}}</p>
-                    <p class="card-text"> DNI: {{user.idDocument}}</p>
-                    <p class="card-text"> Nacionalidad: {{user.nationality}}</p>
-                    <p class="card-text">Teléfono: {{user.phoneNumber}}</p>
-                    <p class="card-text">Dirección: {{user.address.addresInfo}}, {{user.address.city}},
+                    <h4 class="card-title">{{user.name}} {{user.lastname}}</h4>
+                    <p> Email{{user.email}}</p>
+                    <p> Fecha de nacimiento{{user.my_birthDate}}</p>
+                    <p> DNI{{user.idDocument}}</p>
+                    <p> Nacionalidad{{user.nationality}}</p>
+                    <p>Teléfono{{user.phoneNumber}}</p>
+                    <p>Dirección{{user.address.addresInfo}}, {{user.address.city}},
                         {{user.address.province}}, {{user.address.zipCode}}</p>
-                    <p class="card-text">Apodo: {{user.username}}</p>
-                    <p class="card-text">Teléfono de Emergencia: {{user.emergencyNumber}}</p>
+                    <p>Apodo{{user.username}}</p>
+                    <p>Teléfono de Emergencia{{user.emergencyNumber}}</p>
                 </div>
             </div>
         </div>
@@ -23,13 +112,13 @@
         <div class="col-md-4 mb-3">
             <div class="card">
                 <div class="card-body">
-                    <h3 class="card-title">Datos familiares</h3>
-                    <p class="card-text">Miembros en la unidad familiar: {{user.familyData.members}}</p>
-                    <p class="card-text">Menores a cargo: {{#if user.familyData.childs}}Sí{{else}}No{{/if}}</p>
-                    <p class="card-text">Personas con discapacidad: {{#if
+                    <h4 class="card-title">Datos familiares</h4>
+                    <p>Miembros en la unidad familiar{{user.familyData.members}}</p>
+                    <p>Menores a cargo{{#if user.familyData.childs}}Sí{{else}}No{{/if}}</p>
+                    <p>Personas con discapacidad{{#if
                         user.familyData.handicapped}}Sí{{else}}No{{/if}}</p>
-                    <p class="card-text">Divorciada: {{#if user.familyData.divorced}}Sí{{else}}No{{/if}}</p>
-                    <p class="card-text">Tipo de custodia: {{user.familyData.custody}}</p>
+                    <p>Divorciada{{#if user.familyData.divorced}}Sí{{else}}No{{/if}}</p>
+                    <p>Tipo de custodia{{user.familyData.custody}}</p>
                 </div>
             </div>
         </div>
@@ -40,15 +129,15 @@
             <div class="col-md-4 mb-3">
                 <div class="card">
                     <div class="card-body">
-                        <h3 class="card-title">Reportes previos</h3>
-                        <p class="card-text">Servicios sociales: {{#if
+                        <h4 class="card-title">Reportes previos</h4>
+                        <p>Servicios sociales{{#if
                             user.previousReport.socialServices}}Sí{{else}}No{{/if}}</p>
-                        <p class="card-text">Seguimiento: {{#if user.previousReport.tracing}}Sí{{else}}No{{/if}}</p>
-                        <p class="card-text">Contacto con policía: {{#if user.previousReport.police}}Sí
+                        <p>Seguimiento{{#if user.previousReport.tracing}}Sí{{else}}No{{/if}}</p>
+                        <p>Contacto con policía{{#if user.previousReport.police}}Sí
                             {{else}}No{{/if}}</p>
-                        <p class="card-text">Medidas Cautelares: {{#if
+                        <p>Medidas Cautelares{{#if
                             user.previousReport.precautionaryMeasures}}Sí{{else}}No{{/if}}</p>
-                        <p class="card-text">Situación laboral: {{#if
+                        <p>Situación laboral{{#if
                             user.previousReport.employmentSituation}}Empleada{{else}}Desempleada{{/if}}</p>
                     </div>
                 </div>
@@ -59,14 +148,14 @@
             <div class="col-md-4 mb-3">
                 <div class="card">
                     <div class="card-body">
-                        <h3 class="card-title">Ayudas sociales</h3>
-                        <p class="card-text">Beneficios sociales: {{#if user.socialHelp.benefits}}Sí{{else}}No{{/if}}
+                        <h4 class="card-title">Ayudas sociales</h4>
+                        <p>Beneficios sociales{{#if user.socialHelp.benefits}}Sí{{else}}No{{/if}}
                         </p>
-                        <p class="card-text">Sistema de apoyo: {{#if user.socialHelp.supportSistem}}Sí{{else}}No{{/if}}
+                        <p>Sistema de apoyo{{#if user.socialHelp.supportSistem}}Sí{{else}}No{{/if}}
                         </p>
-                        <p class="card-text">¿Necesita traductor?: {{#if user.translator}}Sí{{else}}No{{/if}}</p>
+                        <p>¿Necesita traductor?{{#if user.translator}}Sí{{else}}No{{/if}}</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </div> --}}
+    {{!-- </div> --}}

@@ -41,11 +41,11 @@ function getIssues() {
     map = new google.maps.Map(
       document.querySelector('#map'),
       {
-        zoom: 11,
-        center: { lat: 40.392554906025985, lng: -3.6972145868784514 }
+        zoom: 13,
+        center: { lat: 40.392454906025985, lng: -3.6972145868784514 }
       }
       )
 }
   
- const markerCluster = new MarkerClusterer({ map, marker })
+//  const markerCluster = new MarkerClusterer({ map, marker })
     

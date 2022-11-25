@@ -1,66 +1,64 @@
+
+
 <div class="container mt-5">
 
+    <ul class="list-group">
+    {{#each eventsByOwner}}
 
+    <li class="list-group-item rounded bg-blue20 mb-3">
 
-<ul class="list-group">
-{{#each eventsByOwner}}
+        <div class="row">
 
-  <li class="list-group-item rounded bg-blue20 ">
-
-    <div class="row">
-
-        <div class="col-md-2 mt-2">
-            <div class="rounded bg-dark bg-opacity-10 p-2">
-                <a href="/users/usuario/{{this.[0].owner._id}}"><img src="{{this.[0].owner.imageUrl}}" class="imgIssue" alt="{{this.[0].owner.name}}"></a>
+            <div class="col-md-2 mt-2">
+                <div class="rounded bg-dark bg-opacity-10 p-2">
+                    <a href="/users/usuario/{{this.[0].owner._id}}"><img src="{{this.[0].owner.imageUrl}}" class="imgIssue" alt="{{this.[0].owner.name}}"></a>
+                </div>
+            
             </div>
-        
-        </div>
 
-        <div class="col-md-10 mt-2">
-            <h2 class="ms-5">{{this.[0].owner.name}} {{this.[0].owner.lastname}}</h2>
-            <hr>
+            <div class="col-md-10 mt-2">
+                <h2 class="ms-5">{{this.[0].owner.name}} {{this.[0].owner.lastname}}</h2>
+                <hr>
 
 
-                <div class="row">
+                    <div class="row">
 
 
-                    {{#each this}}
-                    <div class="rounded d-flex align-items-center mt-1 bg-light bg-opacity-50">
+                        {{#each this}}
+                        <div class="rounded d-flex align-items-center mt-1 bg-light bg-opacity-50">
 
-                        <div class="col-md-10">
+                            <div class="col-md-10">
 
-                        <h3>{{agression}}</h3>
-                        <p> Descripción: {{description}}</p>
-                            
+                            <h4 class="mt-2">{{agression}}</h4>
+                            <p class=" me-3">{{description}}</p>
+                                
+                            </div>
+
+                            <div class="col-md-2">
+
+                            {{#if ../../isAdmin}}
+                            <form action="/eventos/eliminar/{{_id}}" method="POST">
+                                <input type="submit" value="Eliminar evento" class="btn btn-dark">
+                            </form>
+                            {{/if}}
+
+                            </div>
+
+
                         </div>
 
-                        <div class="col-md-2">
 
-                        {{#if ../../isAdmin}}
-                        <form action="/eventos/eliminar/{{_id}}" method="POST">
-                            <input type="submit" value="Eliminar evento" class="btn btn-dark">
-                        </form>
-                        {{/if}}
-
-                        </div>
+                        {{/each}}
 
 
                     </div>
-
-
-                    {{/each}}
-
-
-                </div>
-        </div>
-        <div class="col-md-2">
+            </div>
             
         </div>
-    </div>
-  </li>
- 
-{{/each}}
+    </li>
+    
+    {{/each}}
 
-</ul>
+    </ul>
 
 </div>

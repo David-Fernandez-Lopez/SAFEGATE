@@ -1,42 +1,68 @@
 <div class="container mt-5">
     <div class="row justify-content-center">
-        <div class="col-md-6">
+        <div class="col-md-8 bg-blue20 p-3 rounded pb-4 mb-4">
+            <div class="d-flex justify-content-center">
 
-            <h1>Nuevo integrador</h1>
+            <h2>Nuevo integrador</h2>
+
+            </div>
+
+
             <hr>
 
             <form action="/registro-integrador" method="POST" enctype="multipart/form-data">
 
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" name="email">
+                <div class="row">
+
+                    <div class="col-md-6">
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="password" name="password" required>
+                            <div id="password" class="form-text">La contraseña debería incluir al menos un dígito, una
+                                minúscula, una mayúscula y 8 caracteres.</div>
+                        </div>
+                    </div>
+
+                <div class="col-md-6">
+
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
                 </div>
 
-                <div class="mb-3">
-                    <label for="password" class="form-label">Contraseña</label>
-                    <input type="password" class="form-control" id="password" name="password">
-                    <div id="password" class="form-text">La contraseña debería incluir al menos un dígito, una
-                        minúscula, una mayúscula y 8 caracteres.</div>
+                <div class="col-md-6">
+
+                    <div class="mb-3">
+                        <label for="lastname" class="form-label">Apellidos</label>
+                        <input type="text" class="form-control" id="lastname" name="lastname" required>
+                    </div>
                 </div>
 
-                <div class="mb-3">
-                    <label for="name" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="name" name="name">
+                <div class="col-md-6">
+
+                    <div class="mb-3">
+                        <label for="idDocument" class="form-label">DNI/NIE</label>
+                        <input type="text" class="form-control" id="idDocument" name="idDocument" required>
+                    </div>
                 </div>
 
-                <div class="mb-3">
-                    <label for="lastname" class="form-label">Apellidos</label>
-                    <input type="text" class="form-control" id="lastname" name="lastname">
-                </div>
+                <div class="col-md-6">
 
-                <div class="mb-3">
-                    <label for="idDocument" class="form-label">DNI/NIE</label>
-                    <input type="text" class="form-control" id="idDocument" name="idDocument">
-                </div>
-
-                <div class="mb-3">
-                    <label for="phoneNumber" class="form-label">Teléfono</label>
-                    <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber">
+                    <div class="mb-3">
+                        <label for="phoneNumber" class="form-label">Teléfono</label>
+                        <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" required>
+                    </div>
                 </div>
 
                 <div class="mb-3">
@@ -48,6 +74,7 @@
                     <button type="submit" class="btn btn-dark block">Completar registro</button>
                 </div>
 
+            </div>
             </form>
 
         </div>

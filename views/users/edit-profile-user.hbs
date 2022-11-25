@@ -1,78 +1,83 @@
-<div class="container mt-5">
+<div class="container mt-4">
 
     <div class="row justify-content-center">
 
-        <div class="col-md-9 col-lg-12">
+        <div class="col-lg-11">
+            <div class="d-flex justify-content-center">
 
-            <h1>Editar perfil</h1>
+            <h2>Editar perfil</h2>
+            </div>
             <hr>
-            <form action="/users/mi-perfil/editar/{{currentuserid}}" method="POST" enctype="multipart/form-data">
-                <div class="row">
 
-                    <div class="mb-3 col-lg-4">
+
+            <form action="/users/mi-perfil/editar/{{currentuserid}}" method="POST" enctype="multipart/form-data">
+                <div class="row mb-3">
+                    <h5 class="mb-3 bg-blue20 p-3 rounded text-center">Datos generales</h5>
+
+                    <div class="mb-3 col-lg-4 bg-blue20 p-3 rounded">
                         <label for="email" class="form-label">Email</label>
                         <input type="email" class="form-control" id="email" name="email" value='{{user.email}}'>
                     </div>
 
-                    <div class="mb-3 col-lg-4">
+                    <div class="mb-3 col-lg-4 bg-blue20 p-3 rounded">
                         <label for="imageUrl" class="form-label">Foto de perfil</label>
                         <input type="file" class="form-control" id="imageUrl" name="imageField"
                             value='{{user.imageField}}'>
                     </div>
 
-                    <div class="mb-3 col-md-5 col-lg-4">
+                    <div class="mb-3 col-md-5 col-lg-4 bg-blue20 p-3 rounded">
                         <label for="name" class="form-label">Nombre</label>
                         <input type="text" class="form-control" id="name" name="name" value='{{user.name}}'>
                     </div>
 
-                    <div class="mb-3 col-md-7 col-lg-4">
+                    <div class="mb-3 col-md-7 col-lg-4 bg-blue20 p-3 rounded">
                         <label for="lastname" class="form-label">Apellidos</label>
                         <input type="text" class="form-control" id="lastname" name="lastname" value='{{user.lastname}}'>
                     </div>
 
-                    {{!-- <div class="mb-3 col-md-6 col-lg-4">
+                    {{!-- <div class="mb-3 col-md-6 col-lg-4 bg-blue20 p-3 rounded">
                         <label for="birthDate" class="form-label">Fecha de nacimiento</label>
                         <input type="date" class="form-control" id="birthDate" name="birthDate"
                             value='{{user.birthDate}}'>
                     </div> --}}
 
-                    <div class="mb-3 col-md-6 col-lg-4">
+                    <div class="mb-3 col-md-6 col-lg-4 bg-blue20 p-3 rounded">
                         <label for="idDocument" class="form-label">DNI/NIE</label>
                         <input type="text" class="form-control" id="idDocument" name="idDocument"
                             value='{{user.idDocument}}'>
                     </div>
 
-                    <div class="mb-3 col-md-6 col-lg-4">
+                    <div class="mb-3 col-md-6 col-lg-4 bg-blue20 p-3 rounded">
                         <label for="nationality" class="form-label">Nacionalidad</label>
                         <input type="text" class="form-control" id="nationality" name="nationality"
                             value='{{user.nationality}}'>
                     </div>
 
-                    <div class="mb-3 col-md-6 col-lg-4">
+                    <div class="mb-3 col-md-6 col-lg-4 bg-blue20 p-3 rounded">
                         <label for="phoneNumber" class="form-label">Teléfono</label>
                         <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber"
                             value='{{user.phoneNumber}}'>
                     </div>
-                    {{!-- RESPONSIVE HASTA AQUÍ --}}
-                    <div class="mb-3 col-md-6">
-                        <label for="addresInfo" class="form-label">Dirección completa</label>
-                        <input type="text" class="form-control" id="addresInfo" name="addresInfo"
+
+                    <div class="mb-3 col-lg-6 bg-blue20 p-3 rounded">
+                        <label for="location" class="form-label">Dirección completa</label>
+                        <input type="text" class="form-control" id="location" name="addresInfo"
                             value='{{user.address.addresInfo}}'>
                         <div id="addresInfo" class="form-text">Ej.: C/Violeta 4, Escalera 2, Piso 3 Puerta A</div>
                     </div>
 
-                    <div class="mb-3 col-md-3">
+                    <div class="mb-3 col-md-4 col-lg-2 bg-blue20 p-3 rounded">
                         <label for="province" class="form-label">Provincia</label>
                         <input type="text" class="form-control" id="province" name="province"
                             value='{{user.address.province}}'>
                     </div>
 
-                    <div class="mb-3 col-md-3">
+                    <div class="mb-3 col-md-4 col-lg-2 bg-blue20 p-3 rounded">
                         <label for="city" class="form-label">Ciudad</label>
                         <input type="text" class="form-control" id="city" name="city" value='{{user.address.city}}'>
                     </div>
 
-                    <div class="mb-3 col-md-3">
+                    <div class="mb-3 col-md-4 col-lg-2 bg-blue20 p-3 rounded">
                         <label for="zipCode" class="form-label">Código Postal</label>
                         <input type="text" class="form-control" id="zipCode" name="zipCode"
                             value='{{user.address.zipCode}}'>
@@ -80,227 +85,248 @@
 
                     {{#unless hasPermissions}}
 
-                    <div class="mb-3 col-md-4">
+                    <div class="mb-3 col-md-6 bg-blue20 p-3 rounded">
                         <label for="username" class="form-label">Apodo</label>
                         <input type="text" class="form-control" id="username" name="username" value='{{user.username}}'>
                     </div>
 
-                    <div class="mb-3 col-md-4">
+                    <div class="mb-3 col-md-6 bg-blue20 p-3 rounded">
                         <label for="emergencyNumber" class="form-label">Teléfono contacto de emergencia</label>
                         <input type="tel" class="form-control" id="emergencyNumber" name="emergencyNumber"
                             value='{{user.emergencyNumber}}'>
                     </div>
 
-                    <div>
 
-                        <h5>Datos familiares</h5>
+                    <h5 class="mb-3 bg-blue20 p-3 rounded text-center">Datos familiares</h5>
 
-                        <div class="row">
-                            <div class="col">
-                                <label for="members" class="form-label">¿Cuántos miembros componen la unidad
-                                    familiar?</label>
-                                <input type="number" class="form-control" id="members" name="members"
-                                    value='{{user.familyData.members}}'>
-                            </div>
-                            <div class="col">
-                                <p>¿Menores a cargo?</p>
-                                <div class="form-check">
-                                    <label class="form-check-label" for="childs">Sí</label>
-                                    <input class="form-check-input" {{#if user.familyData.childs }}checked {{/if}}
-                                        type="radio" id="childs" value="true" name="childs">
-                                </div>
-                                <div class="form-check">
-                                    <label class="form-check-label" for="childs">No</label>
-                                    <input class="form-check-input" {{#unless user.familyData.childs }}checked
-                                        {{/unless}} type="radio" id="childs" value="false" name="childs">
-                                </div>
-                            </div>
-                            <div class="col">
-                                <p>¿Personas con discapacidad?</p>
-                                <div class="form-check">
-                                    <label class="form-check-label" for="handicapped">Sí</label>
-                                    <input class="form-check-input" {{#if user.familyData.handicapped }}checked {{/if}}
-                                        type="radio" id="handicapped" value="true" name="handicapped">
-                                </div>
-                                <div class="form-check">
-                                    <label class="form-check-label" for="handicapped">No</label>
-                                    <input class="form-check-input" {{#unless user.familyData.handicapped }}checked
-                                        {{/unless}} type="radio" id="handicapped" value="false" name="handicapped">
-                                </div>
-                            </div>
-                            <div class="col">
-                                <p>¿Divorciada?</p>
-                                <div class="form-check">
-                                    <label class="form-check-label" for="divorced">Sí</label>
-                                    <input class="form-check-input" {{#if user.familyData.divorced }}checked {{/if}}
-                                        type="radio" id="divorced" value="true" name="divorced">
-                                </div>
-                                <div class="form-check">
-                                    <label class="form-check-label" for="divorced">No</label>
-                                    <input class="form-check-input" {{#unless user.familyData.divorced }}checked
-                                        {{/unless}} type="radio" id="divorced" value="false" name="divorced">
-                                </div>
-                            </div>
-                            <div class="col">
-
-                                <label for="custody" class="form-label">Tipo de custodia</label>
-                                <select class="form-select" selected name="custody" id="custody">
-                                    <option {{#if user.whichcustody.isFirst}} selected {{/if}} value="Monoparental">
-                                        Monoparental</option>
-                                    <option {{#if user.whichcustody.isSecond}} selected {{/if}} value="Compartida">
-                                        Compartida</option>
-                                    <option {{#if user.whichcustody.isThird}} selected {{/if}} value="Partida">Partida
-                                    </option>
-                                    <option {{#if user.whichcustody.isFourth}} selected {{/if}}
-                                        value="Ejercida por terceros">Ejercida por
-                                        terceros</option>
-                                    <option {{#if user.whichcustody.isFifth}} selected {{/if}} value="No aplica">No
-                                        aplica</option>
-                                </select>
-
-                            </div>
-
-                        </div>
-
+                    <div class="col-md-5 col-lg-4 text-md-center bg-blue20 p-3 rounded">
+                        <label for="members" class="form-label">¿Cuántos miembros componen la unidad familiar?</label>
+                        <input type="number" class="form-control" id="members" name="members" value='{{user.familyData.members}}'>
                     </div>
 
-                    <div>
-
-                        <h5>Reportes previos</h5>
-
-                        <div class="row">
-
-                            <div class="col">
-                                <p>Servicios sociales</p>
-                                <div class="form-check">
-                                    <label class="form-check-label" for="socialServices">Sí</label>
-                                    <input class="form-check-input" {{#if user.previousReport.socialServices }}checked
-                                        {{/if}} type="radio" id="socialServices" value="true" name="socialServices">
-                                </div>
-                                <div class="form-check">
-                                    <label class="form-check-label" for="socialServices">No</label>
-                                    <input class="form-check-input" {{#unless user.previousReport.socialServices
-                                        }}checked {{/unless}} type="radio" id="socialServices" value="false"
-                                        name="socialServices">
-                                </div>
-                                <p>¿Se está realizando seguimiento?</p>
-                                <div class="form-check">
-                                    <label class="form-check-label" for="tracing">Sí</label>
-                                    <input class="form-check-input" {{#if user.previousReport.tracing }}checked {{/if}}
-                                        type="radio" id="tracing" value="true" name="tracing">
-                                </div>
-                                <div class="form-check">
-                                    <label class="form-check-label" for="tracing">No</label>
-                                    <input class="form-check-input" {{#unless user.previousReport.tracing }}checked
-                                        {{/unless}} type="radio" id="tracing" value="false" name="tracing">
-                                </div>
+                    <div class="d-flex flex-md-column align-items-center justify-content-between justify-content-md-start col-md-2 text-md-center my-2 my-md-0 bg-blue20 p-3 rounded">
+                        <label>¿Menores a cargo?</label>
+                        <div class="d-flex flex-row mt-md-2">
+                            <div class="form-check">
+                                <label class="form-check-label" for="childs">Sí</label>
+                                <input class="form-check-input" {{#if user.familyData.childs }}checked{{/if}} type="radio" id="childs" value="true" name="childs">
                             </div>
-
-                            <div class="col">
-                                <p>Policía</p>
-                                <div class="form-check">
-                                    <label class="form-check-label" for="police">Sí</label>
-                                    <input class="form-check-input" {{#if user.previousReport.police }}checked {{/if}}
-                                        type="radio" id="police" value="true" name="police">
-                                </div>
-                                <div class="form-check">
-                                    <label class="form-check-label" for="police">No</label>
-                                    <input class="form-check-input" {{#unless user.previousReport.police }}checked
-                                        {{/unless}} type="radio" id="police" value="false" name="police">
-                                </div>
-                            </div>
-
-                            <div class="col">
-                                <p>Medidas Cautelares</p>
-                                <div class="form-check">
-                                    <label class="form-check-label" for="precautionaryMeasures">Sí</label>
-                                    <input class="form-check-input" {{#if
-                                        user.previousReport.precautionaryMeasures}}checked {{/if}} type="radio"
-                                        id="precautionaryMeasures" value="true" name="precautionaryMeasures">
-                                </div>
-                                <div class="form-check">
-                                    <label class="form-check-label" for="precautionaryMeasures">No</label>
-                                    <input class="form-check-input" {{#unless user.previousReport.precautionaryMeasures
-                                        }}checked {{/unless}} type="radio" id="precautionaryMeasures" value="false"
-                                        name="precautionaryMeasures">
-                                </div>
+                            <div class="form-check ms-3">
+                                <label class="form-check-label" for="childs">No</label>
+                                <input class="form-check-input" {{#unless user.familyData.childs }}checked{{/unless}} type="radio" id="childs" value="false" name="childs">
                             </div>
                         </div>
+                    </div>
 
 
-                        <div class="mb-3">
-                            <label for="employmentSituation" class="form-label">Situación laboral</label>
-                            <select class="form-select" selected name="employmentSituation">
-                                <option {{#if user.whichemploymentSituation.isFirst}} selected {{/if}} value="Empleada">
-                                    Empleada</option>
-                                <option {{#if user.whichemploymentSituation.isSecond}} selected {{/if}}
-                                    value="Desempleada">Desempleada</option>
+                    <div class="d-flex flex-md-column align-items-center justify-content-between justify-content-md-start col-md-2 text-md-center my-2 my-md-0 bg-blue20 p-3 rounded">
+                        <label>¿Personas con discapacidad?</label>
+                        <div class="d-flex flex-row mt-md-2">
+                            <div class="form-check">
+                                <label class="form-check-label" for="handicapped">Sí</label>
+                                <input class="form-check-input" {{#if user.familyData.handicapped }}checked {{/if}} type="radio" id="handicapped" value="true" name="handicapped">
+                            </div>
+
+                            <div class="form-check ms-3">
+                                <label class="form-check-label" for="handicapped">No</label>
+                                <input class="form-check-input" {{#unless user.familyData.handicapped }}checked{{/unless}} type="radio" id="handicapped" value="false" name="handicapped">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex flex-md-column align-items-center justify-content-between justify-content-md-start col-md-2 text-md-center my-2 my-md-0 bg-blue20 p-3 rounded">
+                        <label>¿Divorciada?</label>
+
+                        <div class="d-flex flex-row mt-md-2">
+                            <div class="form-check">
+                                <label class="form-check-label" for="divorced">Sí</label>
+                                <input class="form-check-input" {{#if user.familyData.divorced }}checked {{/if}} type="radio" id="divorced" value="true" name="divorced">
+                            </div>
+                            <div class="form-check ms-3">
+                                <label class="form-check-label" for="divorced">No</label>
+                                <input class="form-check-input" {{#unless user.familyData.divorced }}checked{{/unless}} type="radio" id="divorced" value="false" name="divorced">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-8 col-lg-2 bg-blue20 p-3 rounded">
+
+                        <label for="custody" class="form-label">Tipo de custodia</label>
+                            <select class="form-select" selected name="custody" id="custody">
+                                <option {{#if user.whichcustody.isFirst}} selected {{/if}} value="Monoparental">
+                                    Monoparental</option>
+                                <option {{#if user.whichcustody.isSecond}} selected {{/if}} value="Compartida">
+                                    Compartida</option>
+                                <option {{#if user.whichcustody.isThird}} selected {{/if}} value="Partida">Partida
+                                </option>
+                                <option {{#if user.whichcustody.isFourth}} selected {{/if}}
+                                    value="Ejercida por terceros">Ejercida por
+                                    terceros</option>
+                                <option {{#if user.whichcustody.isFifth}} selected {{/if}} value="No aplica">No
+                                    aplica</option>
                             </select>
-                        </div>
+                    </div>
 
-                        <div>
+                    <h5 class="my-3 bg-blue20 p-3 rounded text-center">Reportes previos</h5>
 
-                            <h5>Ayudas sociales</h5>
+                    <div class="d-flex flex-md-column align-items-center justify-content-between justify-content-md-start col-md-2 text-md-center my-2 my-md-0 bg-blue20 p-3 rounded">
+                        <label>Servicios sociales</label>
 
-                            <div class="row">
-
-                                <div class="col">
-                                    <p>Beneficios sociales</p>
-                                    <div class="form-check">
-                                        <label class="form-check-label" for="benefits">Sí</label>
-                                        <input class="form-check-input" {{#if user.socialHelp.benefits}}checked {{/if}}
-                                            type="radio" id="benefits" value="true" name="benefits">
-                                    </div>
-                                    <div class="form-check">
-                                        <label class="form-check-label" for="benefits">No</label>
-                                        <input class="form-check-input" {{#unless user.socialHelp.benefits}}checked
-                                            {{/unless}} type="radio" id="benefits" value="false" name="benefits">
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <p>Sistema de apoyo</p>
-                                    <div class="form-check">
-                                        <label class="form-check-label" for="supportSistem">Sí</label>
-                                        <input class="form-check-input" {{#if user.socialHelp.supportSistem}}checked
-                                            {{/if}} type="radio" id="supportSistem" value="true" name="supportSistem">
-                                    </div>
-                                    <div class="form-check">
-                                        <label class="form-check-label" for="supportSistem">No</label>
-                                        <input class="form-check-input" {{#unless user.socialHelp.supportSistem
-                                            }}checked {{/unless}} type="radio" id="supportSistem" value="false"
-                                            name="supportSistem">
-                                    </div>
-                                </div>
+                        <div class="d-flex flex-row mt-md-2">
+                            <div class="form-check">
+                                <label class="form-check-label" for="socialServices">Sí</label>
+                                <input class="form-check-input" {{#if user.previousReport.socialServices }}checked{{/if}} type="radio" id="socialServices" value="true" name="socialServices">
                             </div>
 
-
-                            <div class="row">
-
-                                <div class="col">
-                                    <p>¿Necesita traductor?</p>
-                                    <div class="form-check">
-                                        <label class="form-check-label" for="translator">Sí</label>
-                                        <input class="form-check-input" {{#if user.translator}}checked {{/if}}
-                                            type="radio" id="translator" value="true" name="translator">
-                                    </div>
-                                    <div class="form-check">
-                                        <label class="form-check-label" for="translator">No</label>
-                                        <input class="form-check-input" {{#unless user.translator }}checked {{/unless}}
-                                            type="radio" id="translator" value="false" name="translator">
-                                    </div>
-                                </div>
-
+                            <div class="form-check ms-3">
+                                <label class="form-check-label" for="socialServices">No</label>
+                                <input class="form-check-input" {{#unless user.previousReport.socialServices
+                                    }}checked {{/unless}} type="radio" id="socialServices" value="false"
+                                    name="socialServices">
                             </div>
-
-                        </div>
-
-                        {{/unless}}
-
-                        <div class="d-grid gap-2">
-                            <button type="submit" class="btn btn-dark block">Completar registro</button>
                         </div>
                     </div>
-            </form>
+                                
+                    <div class="d-flex flex-md-column align-items-center justify-content-between justify-content-md-start col-md-2 text-md-center my-2 my-md-0 bg-blue20 p-3 rounded">
+
+                        <label>¿Se está realizando seguimiento?</label>
+
+                        <div class="d-flex flex-row mt-md-2">
+                            <div class="form-check">
+                                <label class="form-check-label" for="tracing">Sí</label>
+                                <input class="form-check-input" {{#if user.previousReport.tracing }}checked {{/if}}
+                                    type="radio" id="tracing" value="true" name="tracing">
+                            </div>
+                            <div class="form-check ms-3">
+                                <label class="form-check-label" for="tracing">No</label>
+                                <input class="form-check-input" {{#unless user.previousReport.tracing }}checked
+                                    {{/unless}} type="radio" id="tracing" value="false" name="tracing">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-md-column align-items-center justify-content-between justify-content-md-start col-md-2 text-md-center my-2 my-md-0 bg-blue20 p-3 rounded">
+
+                        <label>Policía</label>
+
+                        <div class="d-flex flex-row mt-md-2">
+                            <div class="form-check">
+                                <label class="form-check-label" for="police">Sí</label>
+                                <input class="form-check-input" {{#if user.previousReport.police }}checked {{/if}}
+                                    type="radio" id="police" value="true" name="police">
+                            </div>
+                            <div class="form-check ms-3">
+                                <label class="form-check-label" for="police">No</label>
+                                <input class="form-check-input" {{#unless user.previousReport.police }}checked
+                                    {{/unless}} type="radio" id="police" value="false" name="police">
+                           </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-md-column align-items-center justify-content-between justify-content-md-start col-md-2 text-md-center my-2 my-md-0 bg-blue20 p-3 rounded">
+
+                        <label>Medidas Cautelares</label>
+                        
+                        <div class="d-flex flex-row mt-md-2">
+                            <div class="form-check">
+                                <label class="form-check-label" for="precautionaryMeasures">Sí</label>
+                                <input class="form-check-input" {{#if
+                                    user.previousReport.precautionaryMeasures}}checked {{/if}} type="radio"
+                                    id="precautionaryMeasures" value="true" name="precautionaryMeasures">
+                            </div>
+                            <div class="form-check ms-3">
+                                <label class="form-check-label" for="precautionaryMeasures">No</label>
+                                <input class="form-check-input" {{#unless user.previousReport.precautionaryMeasures
+                                    }}checked {{/unless}} type="radio" id="precautionaryMeasures" value="false"
+                                    name="precautionaryMeasures">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-8 col-lg-4 bg-blue20 p-3 rounded">
+                            
+                        <label for="employmentSituation" class="form-label">Situación laboral</label>
+                        <select class="form-select" selected name="employmentSituation">
+                            <option {{#if user.whichemploymentSituation.isFirst}} selected {{/if}} value="Empleada">
+                                Empleada</option>
+                            <option {{#if user.whichemploymentSituation.isSecond}} selected {{/if}}
+                                value="Desempleada">Desempleada</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+
+                    <h5 class="mb-2 bg-blue20 p-3 rounded text-center">Ayudas sociales</h5>
+
+
+                    <div class="d-flex flex-md-column align-items-center justify-content-between justify-content-md-start col-md-4 text-md-center my-2 my-md-0 bg-blue20 p-3 rounded">
+                        <label>Beneficios sociales</label>
+
+                        <div class="d-flex flex-row mt-md-2">
+                            <div class="form-check">
+                                <label class="form-check-label" for="benefits">Sí</label>
+                                <input class="form-check-input" {{#if user.socialHelp.benefits}}checked {{/if}}
+                                    type="radio" id="benefits" value="true" name="benefits">
+                            </div>
+                            <div class="form-check ms-3">
+                                <label class="form-check-label" for="benefits">No</label>
+                                <input class="form-check-input" {{#unless user.socialHelp.benefits}}checked
+                                    {{/unless}} type="radio" id="benefits" value="false" name="benefits">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="d-flex flex-md-column align-items-center justify-content-between justify-content-md-start col-md-4 text-md-center my-2 my-md-0 bg-blue20 p-3 rounded">
+                        <label>¿Dispone de un sistema de apoyo? <br> (Familia, amigos...)</label>
+
+                        <div class="d-flex flex-row mt-md-2">
+
+                            <div class="form-check">
+                                <label class="form-check-label" for="supportSistem">Sí</label>
+                                <input class="form-check-input" {{#if user.socialHelp.supportSistem}}checked
+                                    {{/if}} type="radio" id="supportSistem" value="true" name="supportSistem">
+                            </div>
+                            <div class="form-check ms-3">
+                                <label class="form-check-label" for="supportSistem">No</label>
+                                <input class="form-check-input" {{#unless user.socialHelp.supportSistem
+                                    }}checked {{/unless}} type="radio" id="supportSistem" value="false"
+                                    name="supportSistem">
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                    <div class="d-flex flex-md-column align-items-center justify-content-between justify-content-md-start col-md-4 text-md-center my-2 my-md-0 bg-blue20 p-3 rounded">
+
+                        <p>¿Necesita traductor?</p>
+
+                        <div class="d-flex flex-row mt-md-2">
+
+                            <div class="form-check">
+                                <label class="form-check-label" for="translator">Sí</label>
+                                <input class="form-check-input" {{#if user.translator}}checked {{/if}}
+                                    type="radio" id="translator" value="true" name="translator">
+                            </div>
+                            <div class="form-check ms-3">
+                                <label class="form-check-label" for="translator">No</label>
+                                <input class="form-check-input" {{#unless user.translator }}checked {{/unless}}
+                                    type="radio" id="translator" value="false" name="translator">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                {{/unless}}
+
+                <div class="d-flex justify-content-center gap-2 mb-4">
+                    <button type="submit" class="btn btn-dark block">Completar registro</button>
+                </div>
+                </form>
+            </div>
         </div>
     </div>
 

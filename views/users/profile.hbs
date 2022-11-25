@@ -1,88 +1,115 @@
+
+
 <div class="container mt-5">
-    <h4 class="card-title">{{user.name}} {{user.lastname}}</h4>
-    <div class="card mb-3" style="max-width: 850px;">
-        <div class="row justify-content-center d-flex">
-            <div class="row g-0 bg-blue20">
-                <div class=" col-md-4">
-                    <img src="{{user.imageUrl}}" class="img-fluid rounded-start" alt="{{user.name}}">
-                </div>
-                <div class="col-md-4 align-items-center mt-4">
+    
+    <div class="row mt-4 d-flex">
+        <div class="col-md-4 mb-2">
+            <div class="justify-content-center d-flex"></div>
+        </div>
 
-                    <div class="card-body">
+        <div class="col-md-4 mb-2">
+            <div class="justify-content-center d-flex">
+                <h2>{{user.name}} {{user.lastname}}</h2>
+            </div>
+        </div>
 
-                        <p class="card-text"> Email: {{user.email}}</p>
-                        <p class="card-text"> Fecha de nacimiento: {{user.my_birthDate}}</p>
-                        <p class="card-text"> DNI: {{user.idDocument}}</p>
-                        <p class="card-text"> Nacionalidad: {{user.nationality}}</p>
+        <div class="col-md-4 mb-2">
+            <div class="mb-2 d-flex justify-content-center justify-content-md-end">
+                <a href="/users/mi-perfil/editar/{{currentuserid}}">
+                <input type="submit" class="btn btn-dark" value="Editar Perfil">
+                </a>
+            </div>
+        </div>
+        <hr>
+    </div>
+
+
+                <div class="row bg-blue20 rounded mb-1">
+                    <div class="d-flex align-center justify-content-center col-md-4 bg-blue20">                    
+                        <img src="{{user.imageUrl}}" class="img-fluid rounded-start" alt="{{user.name}}">
+                    </div>
+                    <div class="col-md-4 text-center p-4">
+
+                        <h6>Email</h6>
+                        <p>{{user.email}}</p>
+                        <h6>Fecha de nacimiento</h6>
+                        <p>{{user.my_birthDate}}</p>
+                        <h6>DNI</h6>
+                        <p>{{user.idDocument}}</p>
+                        <h6>Nacionalidad</h6>
+                        <p>{{user.nationality}}</p>
+                            
+                    </div>
+                    <div class="col-md-4 text-center p-4 bg-blue20">
+                        <h6>Teléfono</h6>
+                        <p>{{user.phoneNumber}}</p>
+                        <h6>Dirección</h6>
+                        <p>{{user.address.addresInfo}}, {{user.address.city}},
+                            {{user.address.province}}, {{user.address.zipCode}}</p>
+                        {{#unless hasPermissions}}
+                        <h6>Apodo</h6>
+                        <p>{{user.username}}</p>
+                        <h6>Teléfono de Emergencia</h6>
+                        <p>{{user.emergencyNumber}}</p>
+                        {{/unless}}
                     </div>
                 </div>
-                <div class="col-md-4 mt-5">
-                    <p class="card-text">Teléfono: {{user.phoneNumber}}</p>
-                    <p class="card-text">Dirección: {{user.address.addresInfo}}, {{user.address.city}},
-                        {{user.address.province}}, {{user.address.zipCode}}</p>
-                    {{#unless hasPermissions}}
-                    <p class="card-text">Apodo: {{user.username}}</p>
-                    <p class="card-text">Teléfono de Emergencia: {{user.emergencyNumber}}</p>
-                    {{/unless}}
-                </div>
-            </div>
+    
+    {{#unless hasPermissions}}
+
+    <div class="row bg-blue20 rounded mb-3">
+
+        <div class="col-md-4 p-4 pb-0 text-center">
+            <h4 >Datos familiares</h4>
+            <hr>
+            <h6>Miembros en la unidad familiar</h6>
+            <p >{{user.familyData.members}}</p>
+            <h6>Menores a cargo</h6>
+            <p >{{#if user.familyData.childs}}Sí{{else}}No{{/if}}</p>
+            <h6>Personas con discapacidad</h6>
+            <p >{{#if
+                user.familyData.handicapped}}Sí{{else}}No{{/if}}</p>
+            <h6>Divorciada</h6>
+            <p >{{#if user.familyData.divorced}}Sí{{else}}No{{/if}}</p>
+            <h6>Tipo de custodia</h6>
+            <p >{{user.familyData.custody}}</p>
+            
+        </div>
+    
+        
+
+        <div class="col-md-4 p-4 pb-0 text-center bg-blue20">
+            <h4>Reportes previos</h4>
+            <hr>
+            <h6>Servicios sociales</h6>
+            <p>{{#if user.previousReport.socialServices}}Sí{{else}}No{{/if}}</p>
+            <h6>Seguimiento</h6>
+            <p>{{#if user.previousReport.tracing}}Sí{{else}}No{{/if}}</p>
+            <h6>Contacto con policía</h6>
+            <p>{{#if user.previousReport.police}}Sí
+                {{else}}No{{/if}}</p>
+            <h6>Medidas Cautelares</h6>
+            <p>{{#if user.previousReport.precautionaryMeasures}}Sí{{else}}No{{/if}}</p>
+            <h6>Situación laboral</h6>
+            <p>{{#if user.previousReport.employmentSituation}}Empleada{{else}}Desempleada{{/if}}</p>
+        </div>
+              
+
+
+
+        <div class="col-md-4 p-4 pb-0 text-center">
+            <h4>Ayudas sociales</h4>
+            <hr>
+            <h6>Beneficios sociales</h6>
+            <p>{{#if user.socialHelp.benefits}}Sí{{else}}No{{/if}}</p>
+            <h6>¿Dispone de un sistema de apoyo? <br> (Familia, amigos...)</h6>
+            <p>{{#if user.socialHelp.supportSistem}}Sí{{else}}No{{/if}}</p>
+            <h6>¿Necesita traductor?</h6>
+            <p>{{#if user.translator}}Sí{{else}}No{{/if}}</p>
         </div>
     </div>
-
-    <div class="row justify-content-center d-flex mt-4">
-
-        {{#unless hasPermissions}}
-
-        <div class="col-md-4 mb-3">
-            <div class="card">
-                <div class="card-body bg-blue20">
-                    <h3 class="card-title">Datos familiares</h3>
-                    <p class="card-text">Miembros en la unidad familiar: {{user.familyData.members}}</p>
-                    <p class="card-text">Menores a cargo: {{#if user.familyData.childs}}Sí{{else}}No{{/if}}</p>
-                    <p class="card-text">Personas con discapacidad: {{#if
-                        user.familyData.handicapped}}Sí{{else}}No{{/if}}</p>
-                    <p class="card-text">Divorciada: {{#if user.familyData.divorced}}Sí{{else}}No{{/if}}</p>
-                    <p class="card-text">Tipo de custodia: {{user.familyData.custody}}</p>
-                </div>
-            </div>
-        </div>
+    {{/unless}}
 
 
 
-        <div class="col-md-4 mb-3">
-            <div class="card">
-                <div class="card-body bg-blue20">
-                    <h3 class="card-title">Reportes previos</h3>
-                    <p class="card-text">Servicios sociales: {{#if
-                        user.previousReport.socialServices}}Sí{{else}}No{{/if}}</p>
-                    <p class="card-text">Seguimiento: {{#if user.previousReport.tracing}}Sí{{else}}No{{/if}}</p>
-                    <p class="card-text">Contacto con policía: {{#if user.previousReport.police}}Sí
-                        {{else}}No{{/if}}</p>
-                    <p class="card-text">Medidas Cautelares: {{#if
-                        user.previousReport.precautionaryMeasures}}Sí{{else}}No{{/if}}</p>
-                    <p class="card-text">Situación laboral: {{#if
-                        user.previousReport.employmentSituation}}Empleada{{else}}Desempleada{{/if}}</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4 mb-3">
-            <div class="card">
-                <div class="card-body bg-blue20">
-                    <h3 class="card-title">Ayudas sociales</h3>
-                    <p class="card-text">Beneficios sociales: {{#if user.socialHelp.benefits}}Sí{{else}}No{{/if}}
-                    </p>
-                    <p class="card-text">Sistema de apoyo: {{#if user.socialHelp.supportSistem}}Sí{{else}}No{{/if}}
-                    </p>
-                    <p class="card-text">¿Necesita traductor?: {{#if user.translator}}Sí{{else}}No{{/if}}</p>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
-</div>
-
-{{/unless}}
-<a href="/users/mi-perfil/editar/{{currentuserid}}">
-    <input type="submit" class="btn btn-dark" value="Editar Perfil">
-</a>

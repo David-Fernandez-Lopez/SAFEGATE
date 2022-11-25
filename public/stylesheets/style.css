@@ -1,11 +1,24 @@
 body {
   font: sans-serif;
+  position: relative;
+  margin-top: 70px;
+}
+
+.fixed {
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+
+textarea {
+  width: 100%;
+  border: none;
 }
 
 #map {
   height: 80vh;
   /* background-color: rgb(28, 190, 185, 0.2); */
-  border: solid rgb(28, 190, 185, 0.2) 20px;
+  border: solid rgb(28, 190, 185, 0.2) 10px;
   border-radius: 20px;
 }
 

@@ -14,7 +14,8 @@
                             <input type="text" class="form-control" id="title" name="title">
 
                             <label for="description" class="form-label mt-2">Descripción</label>
-                            <input type="textarea" class="form-control" id="description" name="description">
+                            <textarea class="rounded" name="description" id="description" cols="30" rows="5"></textarea>
+
 
                             <div class="d-grid gap-2 mt-4">
                             <button type="submit" class="btn btn-dark block">Crear comentario</button>
@@ -37,7 +38,7 @@
                                 <div class="d-flex justify-content-between">
 
                                     <div class="d-flex flex-row align-items-center">
-                                        <p class="small mb-0 ms-2 bg-light p-2 rounded">Usuario: {{owner.username}}</p>
+                                        <p class="small mb-0 ms-2 bg-light p-2 rounded"><strong>Por:</strong> {{owner.username}}</p>
                                     </div>
 
                                     {{#if ../isAdmin}}

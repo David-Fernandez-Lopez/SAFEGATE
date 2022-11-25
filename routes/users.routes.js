@@ -34,8 +34,8 @@ router.get('/mi-perfil/:id', isLoggedIn, (req, res, next) => {
     User
         .findById(user_id)
         .then(user => {
-            const birthdate = my_birthDate(user.birthDate)
-            user.my_birthDate = birthdate
+            // const birthdate = my_birthDate(user.birthDate)
+            // user.my_birthDate = birthdate
             res.render('users/profile', {
                 user,
                 hasPermissions: req.session.currentUser.role !== 'USER'
