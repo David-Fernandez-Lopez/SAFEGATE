@@ -8,6 +8,7 @@ body {
   position: fixed;
   width: 100%;
   top: 0;
+  z-index: 100;
 }
 
 textarea {
@@ -36,7 +37,7 @@ textarea {
 
 
 .bg-dark {
-  background-color: rgb(121, 0, 243, 0.6)!important;
+  background-color: rgb(164, 80, 249)!important;
 }
 
 .btn-dark {
